@@ -91,6 +91,22 @@
         </div>
     </nav>
 
+    <!-- Flash Message (Python)-->
+    {% with messages = get_flashed_messages(with_categories=true) %} {% if
+        messages %} {% for category, message in messages %} {% if category ==
+        'error' %}
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            {{ message }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+        {% else %}
+        <div class="alert alert-success alter-dismissable fade show" role="alert">
+          {{ message }}
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        {% endif %} {% endfor %} {% endif %} {% endwith %}
+
+
     <div class="container d-flex align-items-center justify-content-center p-3 " style="background-color: white;">
         <div style="border: 5px solid #27ee59;padding: 5px;border-radius: 10px;">
             <form class="pt-3 px-5" id="f-signup" style="border: 2px solid #27ee59;border-radius: 10px;" method="POST">
@@ -120,7 +136,7 @@
                     <div class="form-group ">
                         <label for="exampleInputPassword1">Password</label>
                         <input type="password" class="form-control" id="exampleInputPassword1"
-                            style="border: 2px solid #27ee59;">
+                            style="border: 2px solid #27ee59;" id="signup_password1" name="signup_password1">
                         <i class="bi bi-eye" id="togglePassword">
                             <svg xmlns="http://www.w3.org/2000/svg" width="25" height="20" fill="currentColor"
                                 class="bi bi-eye" viewBox="0 0 16 16">
@@ -135,7 +151,7 @@
                     <div class="form-group ">
                         <label for="confirmPassword1">Confirm Password</label>
                         <input type="password" class="form-control" id="confirmPassword1"
-                            style="border: 2px solid #27ee59;">
+                            style="border: 2px solid #27ee59;" id="signup_password2" name="signup_password2">
                         <i class="bi bi-eye" id="togglePassword2">
                             <svg xmlns="http://www.w3.org/2000/svg" width="25" height="20" fill="currentColor"
                                 class="bi bi-eye" viewBox="0 0 16 16">
