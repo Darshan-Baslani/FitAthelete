@@ -36,7 +36,7 @@ def signup():
         
         user = User.query.filter_by(email=email).first()
         
-        if email in user.email:
+        if user:
             flash('Email already Exists', category='error')
         elif '.' not in email:
             flash('Enter valid Email', category='error')
@@ -51,8 +51,7 @@ def signup():
         elif len(email) > 149:
             flash('Email is too long', category='error')
         else:
-            new_user = User(email=email, password=generate_password_hash(
-                signup_password1, method='sha256'))
+            new_user = User(email=email, password=generate_password_hash(signup_password1, method='scrypt'))
             db.session.add(new_user)
             db.session.commit()
             login_user(user, remember=True)
