@@ -61,12 +61,22 @@
                 </ul>
                 <!-- LogIn And SignUp Buttons -->
                 <form class="d-flex" role="search">
+                    {% if user.is_authenticated %}
+
+                    <!-- Logout Button -->
+                    <button class="btn  me-4" id="lsbtn" type="submit"><a class="nav-link"
+                        href="/logout">Logout</a></button>
+
+                    {% else %}
+
                     <!-- Login Button -->
                     <button class="btn btn me-2" id="lsbtn" type="submit"><a class="nav-link"
                             href="login.html">LogIn</a></button>
                     <!-- SignUp Button -->
                     <button class="btn  me-4" id="lsbtn" type="submit"><a class="nav-link"
                             href="signup.html">SignUp</a></button>
+                            
+                    {% endif %}
                 </form>
             </div>
         </div>

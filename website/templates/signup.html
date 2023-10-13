@@ -82,10 +82,21 @@
                     </li>
                 </ul>
                 <form class="d-flex">
+                    {% if user.is_authenticated %}
+
+                    <!-- Logout Button -->
+                   <button class="btn  me-4" id="lsbtn" type="submit"><a class="nav-link"
+                    href="/logout">Logout</a></button>
+
+                    {% else %}
+
+                    <!-- <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"> -->
                     <button class="btn btn me-2" id="lsbtn" type="submit"><a class="nav-link"
                             href="login.html">LogIn</a></button>
                     <button class="btn  me-4" id="lsbtn" type="submit"><a class="nav-link"
                             href="signup.html">SignUp</a></button>
+                            
+                    {% endif %}
                 </form>
             </div>
         </div>
