@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, request, flash, redirect, url_for
-from .models import User
+from .models import *
 from werkzeug.security import check_password_hash, generate_password_hash
 from . import db
 from flask_login import login_user, login_required, logout_user, current_user
@@ -30,10 +30,13 @@ def login():
 @auth.route('/signup.html', methods=['GET', 'POST'])
 def signup():
     if request.method == 'POST':
+        global email
         email = request.form.get('email')
+        global signup_password1
         signup_password1 = request.form.get('signup_password1')
         signup_password2 = request.form.get('signup_password2')
         
+        global user
         user = User.query.filter_by(email=email).first()
         
         if user:
@@ -51,14 +54,65 @@ def signup():
         elif len(email) > 149:
             flash('Email is too long', category='error')
         else:
+            global new_user
             new_user = User(email=email, password=generate_password_hash(signup_password1, method='scrypt'))
             db.session.add(new_user)
             db.session.commit()
-            login_user(user, remember=True)
-            flash('Account Created!', category='success')
-            return redirect(url_for('views.home'))
+            login_user(new_user, remember=True)
+            # flash('Account Created!', category='success')
+            return redirect(url_for('auth.info', user=new_user))
 
     return render_template('signup.html', user=current_user)
+
+    
+@auth.route('/info', methods=['GET', 'POST'])
+def info(user=None):
+    
+    if request.method == 'POST':
+        user = new_user
+        
+        name = request.form.get('name')
+        age = request.form.get('age')
+        gender = request.form.get('gender')
+        weight = request.form.get('weight')
+        height = request.form.get('height')
+        activity_level = request.form.get('activity_level')
+        
+        print(name)
+        print(age)
+        print(gender)
+        print(weight)
+        print(height)
+        print(activity_level)        
+
+        # Ensure "gender" is provided
+        if gender is None:
+            flash('Please provide your gender', category='error')
+            return render_template('info.html')
+
+        new_user_info = Info(
+                name=name,
+                age=age,
+                gender=gender,
+                weight=weight,
+                height=height,
+                activity_level=activity_level,
+                user_id=current_user.id
+            )
+
+        try:
+            db.session.add(new_user_info)
+            db.session.commit()
+            print(new_user_info)
+        except Exception as e:
+            # Print or log the exception to see if there's a specific database issue
+            print(str(e))
+        #login_user(user, remember=True)
+        flash('Account Created!', category='success')
+        return redirect(url_for('views.home'))
+    
+    return render_template('info.html')
+
 
 
 @auth.route('/logout')
