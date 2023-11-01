@@ -1,0 +1,940 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FIt Athlete</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <!-- <link rel="stylesheet" href="common.css"> -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+  <style>
+    ::-webkit-scrollbar {
+      width: 0.625rem;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: white;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      border: 2px solid white;
+      background: #27ee59;
+    }
+
+    body {
+      font-family: ROBOTO;
+    }
+
+    nav {
+      font-family: "Nosifer", sans-serif;
+    }
+
+    .bg-border {
+      border: 2px solid #27ee59;
+      border-radius: 10px;
+    }
+
+    .submit {
+      margin: 0 0 0 8vw;
+      color: #030303;
+      border: 2px solid #27ee59;
+    }
+
+    .submit:hover {
+      background-color: #27ee59;
+    }
+
+    .lsbtn {
+      background-color: #27ee59;
+      font-weight: 600;
+      border: 1px solid black;
+    }
+
+    .lsbtn:hover {
+      background-color: white;
+      border: 1px solid rgb(254, 253, 253);
+    }
+
+    #create-account:hover {
+      border: 2px solid #27ee59;
+      background-color: white;
+      color: #060606;
+    }
+
+    #create-account {
+      border: 2px solid #fdfefd;
+      background-color: #27ee59;
+      color: rgb(8, 7, 7);
+    }
+
+    #togglePassword,
+    #togglePassword2 {
+      cursor: pointer;
+      margin: 0;
+      position: relative;
+      bottom: 34px;
+      left: 249px
+    }
+
+    /* Energy Bars */
+
+    .progressbar-outer {
+      border-radius: 50px;
+    }
+
+    #add-E-btn {
+      background-color: #27ee59;
+      color: white;
+    }
+
+    #add-E-btn:hover {
+      background-color: white;
+      border: 1px solid black;
+      color: rgb(5, 5, 5);
+    }
+
+    @media (max-width:450px) {
+
+      #togglePassword,
+      #togglePassword2 {
+        cursor: pointer;
+        margin: 0;
+        position: relative;
+        bottom: 34px;
+        left: 180px
+      }
+
+      #create-account {
+        font-size: 15px;
+      }
+
+    }
+
+    @media (max-width:420px) {
+
+      #togglePassword,
+      #togglePassword2 {
+        cursor: pointer;
+        margin: 0;
+        position: relative;
+        bottom: 34px;
+        left: 200px
+      }
+
+      nav {
+        height: 9.5vh;
+      }
+    }
+
+    @media (max-width:380px) {
+
+      #togglePassword,
+      #togglePassword2 {
+        cursor: pointer;
+        margin: 0;
+        position: relative;
+        bottom: 34px;
+        left: 170px
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg fixed-top" style="background-color: #27ee59;">
+    <div class="container-fluid " style="background-color: #27ee59;">
+      <a class="navbar-brand" href="#">Fit<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+          fill="currentColor" class="bi bi-bicycle" viewBox="0 0 16 16">
+          <path
+            d="M4 4.5a.5.5 0 0 1 .5-.5H6a.5.5 0 0 1 0 1v.5h4.14l.386-1.158A.5.5 0 0 1 11 4h1a.5.5 0 0 1 0 1h-.64l-.311.935.807 1.29a3 3 0 1 1-.848.53l-.508-.812-2.076 3.322A.5.5 0 0 1 8 10.5H5.959a3 3 0 1 1-1.815-3.274L5 5.856V5h-.5a.5.5 0 0 1-.5-.5zm1.5 2.443-.508.814c.5.444.85 1.054.967 1.743h1.139L5.5 6.943zM8 9.057 9.598 6.5H6.402L8 9.057zM4.937 9.5a1.997 1.997 0 0 0-.487-.877l-.548.877h1.035zM3.603 8.092A2 2 0 1 0 4.937 10.5H3a.5.5 0 0 1-.424-.765l1.027-1.643zm7.947.53a2 2 0 1 0 .848-.53l1.026 1.643a.5.5 0 1 1-.848.53L11.55 8.623z" />
+        </svg>Athlete</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" style="background-color: #27ee59;" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Nutrition</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link ">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link ">Contact</a>
+          </li>
+        </ul>
+        <form class="d-flex">
+          {% if user.is_authenticated %}
+
+          <!-- Logout Button -->
+          <button class="btn  me-4 lsbtn" type="submit"><a class="nav-link" href="/logout">Logout</a></button>
+
+          {% else %}
+
+          <!-- <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"> -->
+          <button class="btn btn me-2 lsbtn" type="submit"><a class="nav-link" href="login.html">LogIn</a></button>
+          <button class="btn  me-4 lsbtn" type="submit"><a class="nav-link" href="signup.html">SignUp</a></button>
+
+          {% endif %}
+        </form>
+
+        <div class="col-1">
+          <a href="index.html" class="text-decoration-none fw-bolder active" style="color: black;">
+            <img
+              src="data:image/jpeg;base64,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"
+              alt="" style="height: 40px;border-radius: 22px;border: 2px solid blue;"> Profile
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Flash Message (Python)-->
+  <!-- {% with messages = get_flashed_messages(with_categories=true) %} {% if
+    messages %} {% for category, message in messages %} {% if category ==
+    'error' %}
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        {{ message }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% else %}
+    <div class="alert alert-success alter-dismissable fade show" role="alert">
+        {{ message }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endif %} {% endfor %} {% endif %} {% endwith %} -->
+
+  <!-- Profile Header (Goal,UpComing Event) -->
+
+  <div class="container-fluid  bg-black  border border-success" style="margin-top: 9.7vh;">
+    <div class="row ">
+      <div class="col-md-2 text-center text-white mt-md-1" style="height: 70px;overflow: hidden;">
+        <span class="fw-bolder" style="font-size: 40px;"><img
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHUAAAB1CAMAAABH2l6OAAAAZlBMVEUAAAD////8/Pz4+PjIyMj09PTu7u6np6fk5OS0tLTp6enOzs7e3t4xMTGDg4NoaGhPT08iIiKhoaFeXl5YWFhDQ0M6Ojq7u7uUlJTY2Nh3d3cdHR1KSkqJiYmamprBwcEREREpKSnP91XjAAAFKklEQVRoge1Y2ZaiMBAlYQcBEUSIC/j/PzmklpAoTttvc+bkvnQHUtutJcEg8PDw8PDw8PDw8PDw8PDw8PgXsJyP7S9F6jyv7PX53vxOwZiJFWG+/MKm1CK9WatkXRbP7xX0WgBQXLen1Zjn9UeZFAUOvM5xXX7vtRCSzUb88Ji5Wl8wssiRncC1vH1pVOnd0wOtSNISnEnrfVfmyF7S+8b4rb4zWsXr3lMQtCh34ufFS/AOSkiHlkhhDSmS8qOXb4g4GweX0hKtJnsynX6Tt4KtPnSOHvVnbnYV9GxeiHihFxe0Gn7yVLQBc3NNYGP3vdXZxIPBhWd6QUUZ78gMMfLDVqAycrT6VV4hq5g7ZFh2rtViR4ioBIY7Dr1ZS4rWP0KZ3ATUtDxfiOFpRyhC9VDIQxA8QRKdQaqW+jI/jpZE6869dKvb0LVK1XTZsarLO1yCu8Cx0lMmTuufzGxYKRxo/zgVxWQPnNLEugjXKhK+ddKGW4i1kFNyRoFp1rpmveFEqsLOCs3uQZgNsJUaX/JkJcJ3arIh5jN6HWExAVm6mG5mwPKkSl5oO5iKUe7GJXZDt1CT5/pPxToewaCjW0k9mvFqahFrRHJ74FrqBDxwX0x5P1OazVk2qKayCMvBTT1ergVycsc1uZt1Kl7NjyAxoy6TWmWSRzXLs6ih0Gl5AidiUJKj1ZkIhe5dNUa4po674gDCdqcItl7Gohkow1un1LYTfcyU6ZKgCgxJJ7KiNOFJG5wtuYkskSNyuwNUq454PmKWBPeuOT9LK25B0x2snhpIpi4eyGOjUJjkxBJgca9b7vTIacJnpY/ySrjcT5sTA51G0BAZx6oJhZ1Y/M2EwVDDQUJXiuVo+uhwDd7A8fTPRqm1cInTu0nCg/5ZsFNKSaFSrCPk2hSh1B14lnLOyX0xVe9GOY/hAcwV921SoT/FYqxS3fFxNOitMsZQO8GQaaPCsOC9jx2bpnFeoHtqYqqfOii5mNTRAKn0DOADHntCvqhJ8uHNoE4819kLQjMpe5p8E/3dzv+Fqj+8GquiDi2Ts9q7816mqMwcY9lMzBRMffKkvkyNZnOmTFboVB5B9cjiWJvOjjsWNVLhouzMFI6YhENwQ8da1pwaecwznjY0zfGFLvb8g1HuDMJBT14+gFK+2HBZaCUY9DagkQ1suRb3wTCHG8PnG3W92ZxQWS8Ma3TFoBzpl9gqW6w4jmgG4MiFitX5l3/5jDlDQPKQ8AWEUqfnGRKLic+g0TGP24Wqs1nFRcEU7l0KLOTpI08k88ZDrOFYy2CMImyVnGJn7toY19SR6FNWj9DG7x1jo01zyBbFSs2hBwxSFpvJAgNuknCH0YDGSWLoZODNrpIf7qlPqpbesRrezHVkpo1QsFNk+D5CtcNTuqKozejO9ccBT7IXq2euFd1PS3AbwcY0IO3h6T5DZDMSMpIuiiD58W7Mw99lGO6ZPEAktv0aY8WXA3YIkymZ0EVF0zSrnTPmg1WqJuoluER1wkU2bEcLPmjNPE3/auQjw8pdQujuiC6fllvsBZ3OUhzU8gurLang/EvbCdssRzO6XmxHVpY2t1v35W8cklOEoGTSFFV8rJTbp3ivK0pm3LUHYWPvm2wP1CAxlQD5Tj255v00l5f72RHpldq+pVo70+LTQfMGaMEkpWlwJSU/TDQLg2X2y58JNI51bf2UweWyf/PYw5NJTr76mtxHo3NZ/sLrNf3rFS4sP59tHh4eHh4eHh4eHh4eHh4eHh7/M/4A52g3yrXjwSkAAAAASUVORK5CYII="
+            alt="" style="height: 100px">,<span style="font-size: 20px;"> Jethva</span></span>
+      </div>
+
+      <!-- Add Event Trigger Button  -->
+
+      <div class="col-md-2 py-3  d-flex align-items-center justify-content-center">
+        <!-- Button trigger modal -->
+        <button type="button" id="Add-Remove-btn" class="btn btn-black text-white border border-success"
+          data-bs-toggle="modal" data-bs-target="#exampleModal">+AddEvent</button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered ">
+            <div class="modal-content" style="border: 5px solid #27ee59;">
+              <div class="modal-header m-auto ">
+                <h1 class="modal-title  " id="exampleModalLabel">Your Next Event</h1>
+              </div>
+              <div class="modal-body">
+
+                <!-- Next Event Name  -->
+
+                <div class="form-group mt-2">
+                  <label for="input-e-name" class="form-label">Event Name</label>
+                  <input type="text" class="form-control bg-border" id="input-e-name" placeholder="Name">
+                </div>
+
+                <!-- Event Date -->
+                <div class="form-group w-50 mt-4">
+                  <label for="input-e-date" class="form-label">Event Date</label>
+                  <input type="date" class="form-control bg-border" id="input-e-date">
+                </div>
+              </div>
+
+              <!-- Weight Goals You Want -->
+
+              <div class="form-group m-3 mt-2 w-50">
+                <label class="form-label">Weight Goal</label>
+                <select class="form-select bg-border" aria-label="Default select example">
+                  <option disabled selected>Goals</option>
+                  <option value="very low">Loose Your Weight</option>
+                  <option value="low">Maintain</option>
+                  <option value="medium">Gain Your Weight</option>
+                </select>
+              </div>
+
+              <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                <button type="submit" class="btn" id="add-E-btn" onclick="addEvent()" data-bs-dismiss="modal">Add
+                  Event</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-8 text-white">
+        <h6 class="text-center h-25 mb-md-3 mb-4" style="color: #27ee59;">My Event <span id="Event-name"
+            class="fs-1 text-white">No
+            Event</span></h6>
+        <span class="ms-md-4 ms-2" style="margin:0 2vw 0 2vw;">In <span id="event-days"><span id="Cdays">00</span>/<span
+              id="Tdays">00</span></span> Days</span>
+        <span class="ms-md-0 ms-5 ps-md-0 ps-5">Today : <span id="Today"></span></span>
+        <span class="" style="margin:0 0 0 28vw;" id="">Event Date : <span id="Event-date">DD-MM-YYYY</span></span>
+        <div class="progress  progressbar-outer" role="progressbar" aria-label="Animated striped example"
+          aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+          <div class="progress-bar rounded-pill bg-dark border border-white progress-bar-striped progress-bar-animated"
+            style="width:50%">
+            <span>0</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+
+  <!-- data-bs-toggle="popover" data-bs-trigger="hover focus" data-bs-content="Disabled popover" -->
+  <!-- Micro and Macro Nutrients Tracking Sectoion  -->
+
+  <div class="container-fluid mt-3">
+    <div class="row">
+      <div class="col-md-6 col-12 ">
+        <div class="p-3 pt-0 border border-success" style="height: 76.7vh;">
+          <div class="py-3 text-center  sticky-top bg-white">
+            <h1 class="fw-bolder">Today's Energy Needs</h1>
+          </div>
+
+          <!-- Energy Section -->
+
+          <div class="fw-bolder mt-2">Energy : <span>100</span> Kcal <img class="ms-2 mb-2 green-right-mark"
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROaPq72gr8NJBSX3J2rhss-p6uN-VolRkKSJIqWmYPFg&s"
+              alt="right-mark" style="height: 2.5vh;opacity: 100;"></div>
+          <div class="progress  progressbar-outer" role="progressbar" aria-label="Animated striped example"
+            aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+            <div class="progress-bar rounded-pill bg-success progress-bar-striped progress-bar-animated"
+              style="width:75%">
+            </div>
+          </div>
+
+
+          <!-- Carbs Section  -->
+          <div class="fw-bolder mt-2">Carbs : <span>100</span> g <img class="ms-2 mb-2 green-right-mark"
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROaPq72gr8NJBSX3J2rhss-p6uN-VolRkKSJIqWmYPFg&s"
+              alt="right-mark" style="height: 2.5vh;"></div>
+          <div class="progress progressbar-outer" role="progressbar" aria-label="Animated striped example"
+            aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+            <!-- inner Value Of Carbs Progerss Bar -->
+            <div class="progress-bar rounded-pill bg-danger progress-bar-striped progress-bar-animated"
+              style="width: 75%"></div>
+          </div>
+
+
+          <!-- Protein Section -->
+          <div class="fw-bolder mt-2">Protein :<span>100</span> g <img class="ms-2 mb-2 green-right-mark"
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROaPq72gr8NJBSX3J2rhss-p6uN-VolRkKSJIqWmYPFg&s"
+              alt="right-mark" style="height: 2.5vh;"></div>
+          <div class="progress progressbar-outer" role="progressbar" aria-label="Animated striped example"
+            aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+            <div class="progress-bar rounded-pill bg-warning progress-bar-striped progress-bar-animated"
+              style="width: 75%"></div>
+          </div>
+
+
+          <!-- Fats Section -->
+          <div class="fw-bolder mt-2">Fats : <span>100</span> g <img class="ms-2 mb-2 green-right-mark"
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROaPq72gr8NJBSX3J2rhss-p6uN-VolRkKSJIqWmYPFg&s"
+              alt="right-mark" style="height: 2.5vh;"></div>
+          <div class="progress progressbar-outer " role="progressbar" aria-label="Animated striped example"
+            aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+            <div class="progress-bar rounded-pill progress-bar-striped progress-bar-animated" style="width: 75%"></div>
+          </div>
+
+          <!-- Link trigger modal -->
+          <div class="mt-4">
+            <span class="text-decoration-underline text-bold" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+              How Do These Bars Works ?
+            </span>
+          </div>
+
+          <!-- Modal -->
+          <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+            aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="staticBackdropLabel">How Do These Bars Works ?</h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ex, fuga quod debitis veniam ipsam quos.
+                  Earum
+                  corporis consequuntur dolore asperiores! Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Facere
+                  veritatis veniam provident maiores cupiditate quaerat aliquid velit odit, laboriosam fugit accusamus
+                  officia nam assumenda ducimus cum sequi autem expedita repellendus iste commodi nihil! Neque voluptate
+                  odio nam at, fuga architecto quae culpa reprehenderit modi ad dolore illo animi repellat nihil.
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Understood</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-3  border" style="background-color: azure;">
+            <p>We Divided Your Energy Needs Into Multiple Meal Plans.</p>
+          </div>
+
+          <div class="mt-3 border " style="background-color: azure;">
+            <p>For every meal Plans you can tune your meal or choose a pro meal you like.</p>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Meal Option Display Section  -->
+
+      <div class="col-md-6 col-12 mt-md-0 mt-5">
+        <div class=" pb-5 border border-success" style="overflow-y: scroll;height: 76.7vh;">
+
+          <div class="pt-3 pb-2 text-center sticky-top bg-white">
+            <h1 class="fw-bolder">Today's Meal Options</h1>
+          </div>
+
+          <div class="container p-5 pt-1">
+
+            <!-- Add That You Want To Eat  -->
+            <div class="card mb-3 ms-md-1 ">
+              <!-- Search Your Food -->
+              <div class="form-group mt-2 m-0 p">
+                <h3 class="text-center">Add Your Food That You Eat</h3>
+
+                <!--  GET FOOD NAME(value) FROM THIS SEARCH INPUT FOR API  -->
+                <input type="search" class="text-center form-control bg-border" id="Athlete" placeholder="Food Name">
+
+              </div>
+              <div class=" d-flex align-items-center justify-content-center ">
+                <button class="p-md-1  btn" type="button"><img class="add-btn"
+                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN8AAADiCAMAAAD5w+JtAAAAh1BMVEX///8AfwAAegCLvYsAdwAAdADF3MXw9vAAfAAAewAAdgAAcwCaw5qnyKeOv478/vyFtYU6kjpBlEFipGJcolyMuYza6tp3r3ex0bHL4Mvp8+m31be/2b+AtID2+vZrqWspjCkbhxtMm0zT5dM1kTXg7+BGl0ZWn1agx6ByrXLJ3cnW6tYhiiGnk5HBAAAExUlEQVR4nO2d63LiOBBGbY8MsmyHW7gPd5KB3bz/862MkyELGNwioJbqO/9SlcJ9SndbagXBc2ht8vZrZxWG4Ue31x8NnvTY5zDP10JFiQwPSBnpv3q/bUf1U0yGQnyqfSMRst+yHdpP0E6jM7mSSOS2g7ubQVhlV6A6TdsB3scoPa+Z35HRxnaI95ClV+0K0obtIM3Jb+uFYexsCY7r6IWhmNgO1IymqKUXypXtSM3oXu9ajkR726GaMFI19XQfM7YdLJ1W3dJztIZmNVvfATWyHS6ZhKCnsR0ulSml+HQBujbKrwnNTyNfbQdMY16/8ywRc9shkyBWT+3n1nJ3SOxewmhmO2QSW1rz0w1waztkEtcWtRUFaDtkCm/U7kWPEG+2gyawMfBzaRk4onafugN1aYqWG7Q/l96lZQZ+me2gCbwY+L3YDprALwO/X7aDJgA/+HEGfvDjDPzgxxn4wY8z8IMfZ+AHP87AD36cgR/8OAM/+HEGfvDjDPzgxxn4wY8z8IMfZ+AHP87AD36cgR/8OAM/+HEGfvDjDPzg92Ba83nTlPnMwG92x/PmlExOzUbW64aRULExdD0taP44JaKwu8gaNZIdTbKt/u+EenzWPjLRJdLJrueSabynkXtqR2SUrqtzkWy2ymW5Ehl3K5LjLWL37Qpk2r5g93Y1UZlbiOVZT/Pbk8IrkfLktPm0XqorZ5Dif42w4ZmeRnwrwQn9uDp7ZHic05CzYbhA9OdLb0fPpuAC8bTUm/szMJxQ+vV99RO7g5+Pje+Tw8juZ+srUMVce0FNleQOydDv6llUUINUQu6gJvRMZS4hpv6ODgVRFix8bn9yEbx77bcOlrZjeCjLwHYEDwZ+bhOsLAfwWFbB1nYID2UZvHo+PrT9XT7oBcQ+yH2ef+r52cDn9UORtdjn+bVeHwU9nzuYwCBVtTsc3k94/ILi8H7J5xVu+f7a1x708/0u7SoKh5BfH1hWXjbB46UgA/8+b+rS6x4/cPr4hSz6vsdg4V0TPLlz6I9ngun0ZINIz6sqGp/qBcGLP51McvFWwbEvO5jU+vJlNa1Z7MFiXsjqmxYme7f3R4aJCneVdgXN3TYWDm5vDYvNn/Vu1Z2MhttEKSXMManmyR3P09FGYS8jXLPXHGz+aZgyNvimnyzGxs/bbP597j2zuN/i3A/nO/gAP/hxBn7w4wz84McZ+MGPM/CDH2fgBz/OwA9+nIEf/DgDP/hxBn7w4wz84McZ+MGPM/CDH2fgBz/OwA9+nIEf/DgDP/hxBn7w44zvfr6fX8kM/DLbQRPIDfxy20ETGNFPY4vqU5f8GNMPY6tLR4K5YpAUVr3d/lk2tAzqJ+UKHOt8UE/wyqXtkEnsqQdUy1RJzkDuQMV5QgXONGOin3ruAeG76dAaoFzbDpgIMa2hY9VTjxC0EVDe/kVmkK6QEy5NrkualAKUTg3uJf36LVC5NLf+S+2sasm77VCNqJ1VLXJs7PtiV2+QTwlpTXgxq9PHpE42vpLh7RJ0WS8IshttUKoaCYU4cz3pmFhevw/UAVqztGotGCn3pi0XmOyVOB8KEyH7l9Owucc8Xwv191JdKSP9V8+1FcN1Wpu8/dpZab2Pbq8/qrjC9ef5DxGbeQi22vYnAAAAAElFTkSuQmCC"
+                    alt="" style="height: 6vh;opacity: 100;"></button>
+              </div>
+            </div>
+            <hr>
+
+            <!-- Meal Option Card -->
+            <div class="card mb-3 ms-md-1 " style="max-width: 540px;height: auto;">
+
+              <div class="row g-0">
+                <div class="col-md-4 ">
+                  <img
+                    src="https://media.post.rvohealth.io/wp-content/uploads/2020/09/eggs-breakfast-avocado-732x549-thumbnail.jpg"
+                    style="height: 150px;width: 280px;" alt="..." class="img-fluid rounded-start">
+                </div>
+                <div class="col-md-6">
+                  <div class="card-body px-4 py-2 yb-0" style="height: 64px;overflow: hidden">
+                    <h5 class="card-title" style="line-height: 1.29;">Quinoa and Black Bean Salad.</h5>
+                  </div>
+                  <small class="form-text text-muted ms-5">This Meal Contain:</small>
+                  <div class="container ">
+                    <div class="row">
+                      <span class="col ms-md-4 ms-1" data-bs-toggle="popover" data-bs-trigger="hover focus"
+                        data-bs-content="Calories">🟢<span>1000</span><span class="fw-bolder ms-2">kc</span></span>
+                      <span class="col ">🔴<span>40</span><span class="fw-bolder ms-2">g</span></span>
+                    </div>
+                    <div class="row">
+                      <span class="col ms-md-4 mb-2 ms-1">🟡<span>15</span><span class="fw-bolder ms-2">g</span></span>
+                      <span class="col ">🔵<span>7</span><span class="fw-bolder ms-2">g</span></span>
+                    </div>
+
+                  </div>
+                </div>
+
+                <div class="col-md-2  d-flex align-items-center justify-content-center ">
+                  <button class="p-md-1  btn" type="button"><img class="add-btn"
+                      src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN8AAADiCAMAAAD5w+JtAAAAh1BMVEX///8AfwAAegCLvYsAdwAAdADF3MXw9vAAfAAAewAAdgAAcwCaw5qnyKeOv478/vyFtYU6kjpBlEFipGJcolyMuYza6tp3r3ex0bHL4Mvp8+m31be/2b+AtID2+vZrqWspjCkbhxtMm0zT5dM1kTXg7+BGl0ZWn1agx6ByrXLJ3cnW6tYhiiGnk5HBAAAExUlEQVR4nO2d63LiOBBGbY8MsmyHW7gPd5KB3bz/862MkyELGNwioJbqO/9SlcJ9SndbagXBc2ht8vZrZxWG4Ue31x8NnvTY5zDP10JFiQwPSBnpv3q/bUf1U0yGQnyqfSMRst+yHdpP0E6jM7mSSOS2g7ubQVhlV6A6TdsB3scoPa+Z35HRxnaI95ClV+0K0obtIM3Jb+uFYexsCY7r6IWhmNgO1IymqKUXypXtSM3oXu9ajkR726GaMFI19XQfM7YdLJ1W3dJztIZmNVvfATWyHS6ZhKCnsR0ulSml+HQBujbKrwnNTyNfbQdMY16/8ywRc9shkyBWT+3n1nJ3SOxewmhmO2QSW1rz0w1waztkEtcWtRUFaDtkCm/U7kWPEG+2gyawMfBzaRk4onafugN1aYqWG7Q/l96lZQZ+me2gCbwY+L3YDprALwO/X7aDJgA/+HEGfvDjDPzgxxn4wY8z8IMfZ+AHP87AD36cgR/8OAM/+HEGfvDjDPzgxxn4wY8z8IMfZ+AHP87AD36cgR/8OAM/+HEGfvDjDPzg92Ba83nTlPnMwG92x/PmlExOzUbW64aRULExdD0taP44JaKwu8gaNZIdTbKt/u+EenzWPjLRJdLJrueSabynkXtqR2SUrqtzkWy2ymW5Ehl3K5LjLWL37Qpk2r5g93Y1UZlbiOVZT/Pbk8IrkfLktPm0XqorZ5Dif42w4ZmeRnwrwQn9uDp7ZHic05CzYbhA9OdLb0fPpuAC8bTUm/szMJxQ+vV99RO7g5+Pje+Tw8juZ+srUMVce0FNleQOydDv6llUUINUQu6gJvRMZS4hpv6ODgVRFix8bn9yEbx77bcOlrZjeCjLwHYEDwZ+bhOsLAfwWFbB1nYID2UZvHo+PrT9XT7oBcQ+yH2ef+r52cDn9UORtdjn+bVeHwU9nzuYwCBVtTsc3k94/ILi8H7J5xVu+f7a1x708/0u7SoKh5BfH1hWXjbB46UgA/8+b+rS6x4/cPr4hSz6vsdg4V0TPLlz6I9ngun0ZINIz6sqGp/qBcGLP51McvFWwbEvO5jU+vJlNa1Z7MFiXsjqmxYme7f3R4aJCneVdgXN3TYWDm5vDYvNn/Vu1Z2MhttEKSXMManmyR3P09FGYS8jXLPXHGz+aZgyNvimnyzGxs/bbP597j2zuN/i3A/nO/gAP/hxBn7w4wz84McZ+MGPM/CDH2fgBz/OwA9+nIEf/DgDP/hxBn7w4wz84McZ+MGPM/CDH2fgBz/OwA9+nIEf/DgDP/hxBn7w44zvfr6fX8kM/DLbQRPIDfxy20ETGNFPY4vqU5f8GNMPY6tLR4K5YpAUVr3d/lk2tAzqJ+UKHOt8UE/wyqXtkEnsqQdUy1RJzkDuQMV5QgXONGOin3ruAeG76dAaoFzbDpgIMa2hY9VTjxC0EVDe/kVmkK6QEy5NrkualAKUTg3uJf36LVC5NLf+S+2sasm77VCNqJ1VLXJs7PtiV2+QTwlpTXgxq9PHpE42vpLh7RJ0WS8IshttUKoaCYU4cz3pmFhevw/UAVqztGotGCn3pi0XmOyVOB8KEyH7l9Owucc8Xwv191JdKSP9V8+1FcN1Wpu8/dpZab2Pbq8/qrjC9ef5DxGbeQi22vYnAAAAAElFTkSuQmCC"
+                      alt="" style="height: 6vh;opacity: 100;"></button>
+                </div>
+              </div>
+
+            </div>
+            <hr>
+
+            <!-- Meal Option Card -->
+            <div class="card mb-3 ms-md-1 " style="max-width: 540px;height: auto;">
+
+              <div class="row g-0">
+                <div class="col-md-4 ">
+                  <img
+                    src="https://media.post.rvohealth.io/wp-content/uploads/2020/09/eggs-breakfast-avocado-732x549-thumbnail.jpg"
+                    style="height: 150px;width: 280px;" alt="..." class="img-fluid rounded-start">
+                </div>
+                <div class="col-md-6">
+                  <div class="card-body px-4 py-2 yb-0" style="height: 64px;overflow: hidden">
+                    <h5 class="card-title" style="line-height: 1.29;">Cauliflower and Chickpea Masala.</h5>
+                  </div>
+                  <small class="form-text text-muted ms-5">This Meal Contain:</small>
+                  <div class="container ">
+                    <div class="row">
+                      <span class="col ms-md-4 ms-1" data-bs-toggle="popover" data-bs-trigger="hover focus"
+                        data-bs-content="Calories">🟢<span>1000</span><span class="fw-bolder ms-2">kc</span></span>
+                      <span class="col ">🔴<span>25</span><span class="fw-bolder ms-2">g</span></span>
+                    </div>
+                    <div class="row">
+                      <span class="col ms-md-4 mb-2 ms-1">🟡<span>10</span><span class="fw-bolder ms-2">g</span></span>
+                      <span class="col ">🔵<span>10</span><span class="fw-bolder ms-2">g</span></span>
+                    </div>
+
+                  </div>
+                </div>
+
+                <div class="col-md-2  d-flex align-items-center justify-content-center ">
+                  <button class="p-md-1  btn" type="button"><img class="add-btn"
+                      src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN8AAADiCAMAAAD5w+JtAAAAh1BMVEX///8AfwAAegCLvYsAdwAAdADF3MXw9vAAfAAAewAAdgAAcwCaw5qnyKeOv478/vyFtYU6kjpBlEFipGJcolyMuYza6tp3r3ex0bHL4Mvp8+m31be/2b+AtID2+vZrqWspjCkbhxtMm0zT5dM1kTXg7+BGl0ZWn1agx6ByrXLJ3cnW6tYhiiGnk5HBAAAExUlEQVR4nO2d63LiOBBGbY8MsmyHW7gPd5KB3bz/862MkyELGNwioJbqO/9SlcJ9SndbagXBc2ht8vZrZxWG4Ue31x8NnvTY5zDP10JFiQwPSBnpv3q/bUf1U0yGQnyqfSMRst+yHdpP0E6jM7mSSOS2g7ubQVhlV6A6TdsB3scoPa+Z35HRxnaI95ClV+0K0obtIM3Jb+uFYexsCY7r6IWhmNgO1IymqKUXypXtSM3oXu9ajkR726GaMFI19XQfM7YdLJ1W3dJztIZmNVvfATWyHS6ZhKCnsR0ulSml+HQBujbKrwnNTyNfbQdMY16/8ywRc9shkyBWT+3n1nJ3SOxewmhmO2QSW1rz0w1waztkEtcWtRUFaDtkCm/U7kWPEG+2gyawMfBzaRk4onafugN1aYqWG7Q/l96lZQZ+me2gCbwY+L3YDprALwO/X7aDJgA/+HEGfvDjDPzgxxn4wY8z8IMfZ+AHP87AD36cgR/8OAM/+HEGfvDjDPzgxxn4wY8z8IMfZ+AHP87AD36cgR/8OAM/+HEGfvDjDPzg92Ba83nTlPnMwG92x/PmlExOzUbW64aRULExdD0taP44JaKwu8gaNZIdTbKt/u+EenzWPjLRJdLJrueSabynkXtqR2SUrqtzkWy2ymW5Ehl3K5LjLWL37Qpk2r5g93Y1UZlbiOVZT/Pbk8IrkfLktPm0XqorZ5Dif42w4ZmeRnwrwQn9uDp7ZHic05CzYbhA9OdLb0fPpuAC8bTUm/szMJxQ+vV99RO7g5+Pje+Tw8juZ+srUMVce0FNleQOydDv6llUUINUQu6gJvRMZS4hpv6ODgVRFix8bn9yEbx77bcOlrZjeCjLwHYEDwZ+bhOsLAfwWFbB1nYID2UZvHo+PrT9XT7oBcQ+yH2ef+r52cDn9UORtdjn+bVeHwU9nzuYwCBVtTsc3k94/ILi8H7J5xVu+f7a1x708/0u7SoKh5BfH1hWXjbB46UgA/8+b+rS6x4/cPr4hSz6vsdg4V0TPLlz6I9ngun0ZINIz6sqGp/qBcGLP51McvFWwbEvO5jU+vJlNa1Z7MFiXsjqmxYme7f3R4aJCneVdgXN3TYWDm5vDYvNn/Vu1Z2MhttEKSXMManmyR3P09FGYS8jXLPXHGz+aZgyNvimnyzGxs/bbP597j2zuN/i3A/nO/gAP/hxBn7w4wz84McZ+MGPM/CDH2fgBz/OwA9+nIEf/DgDP/hxBn7w4wz84McZ+MGPM/CDH2fgBz/OwA9+nIEf/DgDP/hxBn7w44zvfr6fX8kM/DLbQRPIDfxy20ETGNFPY4vqU5f8GNMPY6tLR4K5YpAUVr3d/lk2tAzqJ+UKHOt8UE/wyqXtkEnsqQdUy1RJzkDuQMV5QgXONGOin3ruAeG76dAaoFzbDpgIMa2hY9VTjxC0EVDe/kVmkK6QEy5NrkualAKUTg3uJf36LVC5NLf+S+2sasm77VCNqJ1VLXJs7PtiV2+QTwlpTXgxq9PHpE42vpLh7RJ0WS8IshttUKoaCYU4cz3pmFhevw/UAVqztGotGCn3pi0XmOyVOB8KEyH7l9Owucc8Xwv191JdKSP9V8+1FcN1Wpu8/dpZab2Pbq8/qrjC9ef5DxGbeQi22vYnAAAAAElFTkSuQmCC"
+                      alt="" style="height: 6vh;opacity: 100;"></button>
+                </div>
+              </div>
+
+            </div>
+            <hr>
+
+            <!-- Meal Option Card -->
+            <div class="card mb-3 ms-md-1 " style="max-width: 540px;height: auto;">
+
+              <div class="row g-0">
+                <div class="col-md-4 ">
+                  <img
+                    src="https://media.post.rvohealth.io/wp-content/uploads/2020/09/eggs-breakfast-avocado-732x549-thumbnail.jpg"
+                    style="height: 150px;width: 280px;" alt="..." class="img-fluid rounded-start">
+                </div>
+                <div class="col-md-6">
+                  <div class="card-body px-4 py-2 yb-0" style="height: 64px;overflow: hidden">
+                    <h5 class="card-title" style="line-height: 1.29;">Mushroom and Spinach Quesadillas.</h5>
+                  </div>
+                  <small class="form-text text-muted ms-5">This Meal Contain:</small>
+                  <div class="container ">
+                    <div class="row">
+                      <span class="col ms-md-4 ms-1" data-bs-toggle="popover" data-bs-trigger="hover focus"
+                        data-bs-content="Calories">🟢<span>1000</span><span class="fw-bolder ms-2">kc</span></span>
+                      <span class="col ">🔴<span>35</span><span class="fw-bolder ms-2">g</span></span>
+                    </div>
+                    <div class="row">
+                      <span class="col ms-md-4 mb-2 ms-1">🟡<span>15</span><span class="fw-bolder ms-2">g</span></span>
+                      <span class="col ">🔵<span>10</span><span class="fw-bolder ms-2">g</span></span>
+                    </div>
+
+                  </div>
+                </div>
+
+                <div class="col-md-2  d-flex align-items-center justify-content-center ">
+                  <button class="p-md-1  btn" type="button"><img class="add-btn"
+                      src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN8AAADiCAMAAAD5w+JtAAAAh1BMVEX///8AfwAAegCLvYsAdwAAdADF3MXw9vAAfAAAewAAdgAAcwCaw5qnyKeOv478/vyFtYU6kjpBlEFipGJcolyMuYza6tp3r3ex0bHL4Mvp8+m31be/2b+AtID2+vZrqWspjCkbhxtMm0zT5dM1kTXg7+BGl0ZWn1agx6ByrXLJ3cnW6tYhiiGnk5HBAAAExUlEQVR4nO2d63LiOBBGbY8MsmyHW7gPd5KB3bz/862MkyELGNwioJbqO/9SlcJ9SndbagXBc2ht8vZrZxWG4Ue31x8NnvTY5zDP10JFiQwPSBnpv3q/bUf1U0yGQnyqfSMRst+yHdpP0E6jM7mSSOS2g7ubQVhlV6A6TdsB3scoPa+Z35HRxnaI95ClV+0K0obtIM3Jb+uFYexsCY7r6IWhmNgO1IymqKUXypXtSM3oXu9ajkR726GaMFI19XQfM7YdLJ1W3dJztIZmNVvfATWyHS6ZhKCnsR0ulSml+HQBujbKrwnNTyNfbQdMY16/8ywRc9shkyBWT+3n1nJ3SOxewmhmO2QSW1rz0w1waztkEtcWtRUFaDtkCm/U7kWPEG+2gyawMfBzaRk4onafugN1aYqWG7Q/l96lZQZ+me2gCbwY+L3YDprALwO/X7aDJgA/+HEGfvDjDPzgxxn4wY8z8IMfZ+AHP87AD36cgR/8OAM/+HEGfvDjDPzgxxn4wY8z8IMfZ+AHP87AD36cgR/8OAM/+HEGfvDjDPzg92Ba83nTlPnMwG92x/PmlExOzUbW64aRULExdD0taP44JaKwu8gaNZIdTbKt/u+EenzWPjLRJdLJrueSabynkXtqR2SUrqtzkWy2ymW5Ehl3K5LjLWL37Qpk2r5g93Y1UZlbiOVZT/Pbk8IrkfLktPm0XqorZ5Dif42w4ZmeRnwrwQn9uDp7ZHic05CzYbhA9OdLb0fPpuAC8bTUm/szMJxQ+vV99RO7g5+Pje+Tw8juZ+srUMVce0FNleQOydDv6llUUINUQu6gJvRMZS4hpv6ODgVRFix8bn9yEbx77bcOlrZjeCjLwHYEDwZ+bhOsLAfwWFbB1nYID2UZvHo+PrT9XT7oBcQ+yH2ef+r52cDn9UORtdjn+bVeHwU9nzuYwCBVtTsc3k94/ILi8H7J5xVu+f7a1x708/0u7SoKh5BfH1hWXjbB46UgA/8+b+rS6x4/cPr4hSz6vsdg4V0TPLlz6I9ngun0ZINIz6sqGp/qBcGLP51McvFWwbEvO5jU+vJlNa1Z7MFiXsjqmxYme7f3R4aJCneVdgXN3TYWDm5vDYvNn/Vu1Z2MhttEKSXMManmyR3P09FGYS8jXLPXHGz+aZgyNvimnyzGxs/bbP597j2zuN/i3A/nO/gAP/hxBn7w4wz84McZ+MGPM/CDH2fgBz/OwA9+nIEf/DgDP/hxBn7w4wz84McZ+MGPM/CDH2fgBz/OwA9+nIEf/DgDP/hxBn7w44zvfr6fX8kM/DLbQRPIDfxy20ETGNFPY4vqU5f8GNMPY6tLR4K5YpAUVr3d/lk2tAzqJ+UKHOt8UE/wyqXtkEnsqQdUy1RJzkDuQMV5QgXONGOin3ruAeG76dAaoFzbDpgIMa2hY9VTjxC0EVDe/kVmkK6QEy5NrkualAKUTg3uJf36LVC5NLf+S+2sasm77VCNqJ1VLXJs7PtiV2+QTwlpTXgxq9PHpE42vpLh7RJ0WS8IshttUKoaCYU4cz3pmFhevw/UAVqztGotGCn3pi0XmOyVOB8KEyH7l9Owucc8Xwv191JdKSP9V8+1FcN1Wpu8/dpZab2Pbq8/qrjC9ef5DxGbeQi22vYnAAAAAElFTkSuQmCC"
+                      alt="" style="height: 6vh;opacity: 100;"></button>
+                </div>
+              </div>
+
+            </div>
+            <hr>
+
+            <!-- Meal Option Card -->
+            <div class="card mb-3 ms-md-1 " style="max-width: 540px;height: auto;">
+
+              <div class="row g-0">
+                <div class="col-md-4 ">
+                  <img
+                    src="https://media.post.rvohealth.io/wp-content/uploads/2020/09/eggs-breakfast-avocado-732x549-thumbnail.jpg"
+                    style="height: 150px;width: 280px;" alt="..." class="img-fluid rounded-start">
+                </div>
+                <div class="col-md-6">
+                  <div class="card-body px-4 py-2 yb-0" style="height: 64px;overflow: hidden">
+                    <h5 class="card-title" style="line-height: 1.29;">Veggie and Hummus Wrap.</h5>
+                  </div>
+                  <small class="form-text text-muted ms-5">This Meal Contain:</small>
+                  <div class="container ">
+                    <div class="row">
+                      <span class="col ms-md-4 ms-1" data-bs-toggle="popover" data-bs-trigger="hover focus"
+                        data-bs-content="Calories">🟢<span>1000</span><span class="fw-bolder ms-2">kc</span></span>
+                      <span class="col ">🔴<span>30</span><span class="fw-bolder ms-2">g</span></span>
+                    </div>
+                    <div class="row">
+                      <span class="col ms-md-4 mb-2 ms-1">🟡<span>10</span><span class="fw-bolder ms-2">g</span></span>
+                      <span class="col ">🔵<span>12</span><span class="fw-bolder ms-2">g</span></span>
+                    </div>
+
+                  </div>
+                </div>
+
+                <div class="col-md-2  d-flex align-items-center justify-content-center ">
+                  <button class="p-md-1  btn" type="button"><img class="add-btn"
+                      src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN8AAADiCAMAAAD5w+JtAAAAh1BMVEX///8AfwAAegCLvYsAdwAAdADF3MXw9vAAfAAAewAAdgAAcwCaw5qnyKeOv478/vyFtYU6kjpBlEFipGJcolyMuYza6tp3r3ex0bHL4Mvp8+m31be/2b+AtID2+vZrqWspjCkbhxtMm0zT5dM1kTXg7+BGl0ZWn1agx6ByrXLJ3cnW6tYhiiGnk5HBAAAExUlEQVR4nO2d63LiOBBGbY8MsmyHW7gPd5KB3bz/862MkyELGNwioJbqO/9SlcJ9SndbagXBc2ht8vZrZxWG4Ue31x8NnvTY5zDP10JFiQwPSBnpv3q/bUf1U0yGQnyqfSMRst+yHdpP0E6jM7mSSOS2g7ubQVhlV6A6TdsB3scoPa+Z35HRxnaI95ClV+0K0obtIM3Jb+uFYexsCY7r6IWhmNgO1IymqKUXypXtSM3oXu9ajkR726GaMFI19XQfM7YdLJ1W3dJztIZmNVvfATWyHS6ZhKCnsR0ulSml+HQBujbKrwnNTyNfbQdMY16/8ywRc9shkyBWT+3n1nJ3SOxewmhmO2QSW1rz0w1waztkEtcWtRUFaDtkCm/U7kWPEG+2gyawMfBzaRk4onafugN1aYqWG7Q/l96lZQZ+me2gCbwY+L3YDprALwO/X7aDJgA/+HEGfvDjDPzgxxn4wY8z8IMfZ+AHP87AD36cgR/8OAM/+HEGfvDjDPzgxxn4wY8z8IMfZ+AHP87AD36cgR/8OAM/+HEGfvDjDPzg92Ba83nTlPnMwG92x/PmlExOzUbW64aRULExdD0taP44JaKwu8gaNZIdTbKt/u+EenzWPjLRJdLJrueSabynkXtqR2SUrqtzkWy2ymW5Ehl3K5LjLWL37Qpk2r5g93Y1UZlbiOVZT/Pbk8IrkfLktPm0XqorZ5Dif42w4ZmeRnwrwQn9uDp7ZHic05CzYbhA9OdLb0fPpuAC8bTUm/szMJxQ+vV99RO7g5+Pje+Tw8juZ+srUMVce0FNleQOydDv6llUUINUQu6gJvRMZS4hpv6ODgVRFix8bn9yEbx77bcOlrZjeCjLwHYEDwZ+bhOsLAfwWFbB1nYID2UZvHo+PrT9XT7oBcQ+yH2ef+r52cDn9UORtdjn+bVeHwU9nzuYwCBVtTsc3k94/ILi8H7J5xVu+f7a1x708/0u7SoKh5BfH1hWXjbB46UgA/8+b+rS6x4/cPr4hSz6vsdg4V0TPLlz6I9ngun0ZINIz6sqGp/qBcGLP51McvFWwbEvO5jU+vJlNa1Z7MFiXsjqmxYme7f3R4aJCneVdgXN3TYWDm5vDYvNn/Vu1Z2MhttEKSXMManmyR3P09FGYS8jXLPXHGz+aZgyNvimnyzGxs/bbP597j2zuN/i3A/nO/gAP/hxBn7w4wz84McZ+MGPM/CDH2fgBz/OwA9+nIEf/DgDP/hxBn7w4wz84McZ+MGPM/CDH2fgBz/OwA9+nIEf/DgDP/hxBn7w44zvfr6fX8kM/DLbQRPIDfxy20ETGNFPY4vqU5f8GNMPY6tLR4K5YpAUVr3d/lk2tAzqJ+UKHOt8UE/wyqXtkEnsqQdUy1RJzkDuQMV5QgXONGOin3ruAeG76dAaoFzbDpgIMa2hY9VTjxC0EVDe/kVmkK6QEy5NrkualAKUTg3uJf36LVC5NLf+S+2sasm77VCNqJ1VLXJs7PtiV2+QTwlpTXgxq9PHpE42vpLh7RJ0WS8IshttUKoaCYU4cz3pmFhevw/UAVqztGotGCn3pi0XmOyVOB8KEyH7l9Owucc8Xwv191JdKSP9V8+1FcN1Wpu8/dpZab2Pbq8/qrjC9ef5DxGbeQi22vYnAAAAAElFTkSuQmCC"
+                      alt="" style="height: 6vh;opacity: 100;"></button>
+                </div>
+              </div>
+
+            </div>
+            <hr>
+
+            <!-- Meal Option Placeholder-Card -->
+            <div class="card mb-3 ms-md-1 " style="max-width: 540px;height: auto;">
+
+              <div class="row g-0">
+                <div class="col-md-4 ">
+                  <img
+                    src="https://media.post.rvohealth.io/wp-content/uploads/2020/09/eggs-breakfast-avocado-732x549-thumbnail.jpg"
+                    style="height: 150px;width: 280px;" alt="..." class="img-fluid rounded-start">
+                </div>
+                <div class="col-md-6">
+                  <div class="card-body px-4 py-2 yb-0" style="height: 64px;overflow: hidden">
+                    <h5 class="card-title" style="line-height: 1.29;"><span class="placeholder col-12"></span> <span
+                        class="placeholder col-12"></span>.</h5>
+                  </div>
+                  <small class="form-text text-muted ms-5">This Meal Contain:</small>
+                  <div class="container ">
+                    <div class="row">
+                      <span class="col ms-md-4 ms-1" data-bs-toggle="popover" data-bs-trigger="hover focus"
+                        data-bs-content="Calories">🟢 <span class="placeholder col-5"></span><span
+                          class="fw-bolder ms-2">kc</span></span>
+                      <span class="col ">🔴 <span class="placeholder col-5"></span><span
+                          class="fw-bolder ms-2">g</span></span>
+                    </div>
+                    <div class="row">
+                      <span class="col ms-md-4 mb-2 ms-1">🟡 <span class="placeholder col-5"></span><span
+                          class="fw-bolder ms-2">g</span></span>
+                      <span class="col ">🔵 <span class="placeholder col-5"></span><span
+                          class="fw-bolder ms-2">g</span></span>
+                    </div>
+
+                  </div>
+                </div>
+
+                <div class="col-md-2  d-flex align-items-center justify-content-center ">
+                  <button class="p-md-1  btn" type="button"><img class="add-btn"
+                      src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN8AAADiCAMAAAD5w+JtAAAAh1BMVEX///8AfwAAegCLvYsAdwAAdADF3MXw9vAAfAAAewAAdgAAcwCaw5qnyKeOv478/vyFtYU6kjpBlEFipGJcolyMuYza6tp3r3ex0bHL4Mvp8+m31be/2b+AtID2+vZrqWspjCkbhxtMm0zT5dM1kTXg7+BGl0ZWn1agx6ByrXLJ3cnW6tYhiiGnk5HBAAAExUlEQVR4nO2d63LiOBBGbY8MsmyHW7gPd5KB3bz/862MkyELGNwioJbqO/9SlcJ9SndbagXBc2ht8vZrZxWG4Ue31x8NnvTY5zDP10JFiQwPSBnpv3q/bUf1U0yGQnyqfSMRst+yHdpP0E6jM7mSSOS2g7ubQVhlV6A6TdsB3scoPa+Z35HRxnaI95ClV+0K0obtIM3Jb+uFYexsCY7r6IWhmNgO1IymqKUXypXtSM3oXu9ajkR726GaMFI19XQfM7YdLJ1W3dJztIZmNVvfATWyHS6ZhKCnsR0ulSml+HQBujbKrwnNTyNfbQdMY16/8ywRc9shkyBWT+3n1nJ3SOxewmhmO2QSW1rz0w1waztkEtcWtRUFaDtkCm/U7kWPEG+2gyawMfBzaRk4onafugN1aYqWG7Q/l96lZQZ+me2gCbwY+L3YDprALwO/X7aDJgA/+HEGfvDjDPzgxxn4wY8z8IMfZ+AHP87AD36cgR/8OAM/+HEGfvDjDPzgxxn4wY8z8IMfZ+AHP87AD36cgR/8OAM/+HEGfvDjDPzg92Ba83nTlPnMwG92x/PmlExOzUbW64aRULExdD0taP44JaKwu8gaNZIdTbKt/u+EenzWPjLRJdLJrueSabynkXtqR2SUrqtzkWy2ymW5Ehl3K5LjLWL37Qpk2r5g93Y1UZlbiOVZT/Pbk8IrkfLktPm0XqorZ5Dif42w4ZmeRnwrwQn9uDp7ZHic05CzYbhA9OdLb0fPpuAC8bTUm/szMJxQ+vV99RO7g5+Pje+Tw8juZ+srUMVce0FNleQOydDv6llUUINUQu6gJvRMZS4hpv6ODgVRFix8bn9yEbx77bcOlrZjeCjLwHYEDwZ+bhOsLAfwWFbB1nYID2UZvHo+PrT9XT7oBcQ+yH2ef+r52cDn9UORtdjn+bVeHwU9nzuYwCBVtTsc3k94/ILi8H7J5xVu+f7a1x708/0u7SoKh5BfH1hWXjbB46UgA/8+b+rS6x4/cPr4hSz6vsdg4V0TPLlz6I9ngun0ZINIz6sqGp/qBcGLP51McvFWwbEvO5jU+vJlNa1Z7MFiXsjqmxYme7f3R4aJCneVdgXN3TYWDm5vDYvNn/Vu1Z2MhttEKSXMManmyR3P09FGYS8jXLPXHGz+aZgyNvimnyzGxs/bbP597j2zuN/i3A/nO/gAP/hxBn7w4wz84McZ+MGPM/CDH2fgBz/OwA9+nIEf/DgDP/hxBn7w4wz84McZ+MGPM/CDH2fgBz/OwA9+nIEf/DgDP/hxBn7w44zvfr6fX8kM/DLbQRPIDfxy20ETGNFPY4vqU5f8GNMPY6tLR4K5YpAUVr3d/lk2tAzqJ+UKHOt8UE/wyqXtkEnsqQdUy1RJzkDuQMV5QgXONGOin3ruAeG76dAaoFzbDpgIMa2hY9VTjxC0EVDe/kVmkK6QEy5NrkualAKUTg3uJf36LVC5NLf+S+2sasm77VCNqJ1VLXJs7PtiV2+QTwlpTXgxq9PHpE42vpLh7RJ0WS8IshttUKoaCYU4cz3pmFhevw/UAVqztGotGCn3pi0XmOyVOB8KEyH7l9Owucc8Xwv191JdKSP9V8+1FcN1Wpu8/dpZab2Pbq8/qrjC9ef5DxGbeQi22vYnAAAAAElFTkSuQmCC"
+                      alt="" style="height: 6vh;opacity: 100;"></button>
+                </div>
+              </div>
+
+            </div>
+            <hr>
+
+            <!-- Meal Option Card -->
+            <div class="card mb-3 ms-md-1 " style="max-width: 540px;height: auto;">
+
+              <div class="row g-0">
+                <div class="col-md-4 ">
+                  <img
+                    src="https://media.post.rvohealth.io/wp-content/uploads/2020/09/eggs-breakfast-avocado-732x549-thumbnail.jpg"
+                    style="height: 150px;width: 280px;" alt="..." class="img-fluid rounded-start">
+                </div>
+                <div class="col-md-6">
+                  <div class="card-body px-4 py-2 yb-0" style="height: 64px;overflow: hidden">
+                    <h5 class="card-title" style="line-height: 1.29;">Vegetable Stir-Fry with Tofu.</h5>
+                  </div>
+                  <small class="form-text text-muted ms-5">This Meal Contain:</small>
+                  <div class="container ">
+                    <div class="row">
+                      <span class="col ms-md-4 ms-1" data-bs-toggle="popover" data-bs-trigger="hover focus"
+                        data-bs-content="Calories">🟢<span>1000</span><span class="fw-bolder ms-2">kc</span></span>
+                      <span class="col ">🔴<span>20</span><span class="fw-bolder ms-2">g</span></span>
+                    </div>
+                    <div class="row">
+                      <span class="col ms-md-4 mb-2 ms-1">🟡<span>15</span><span class="fw-bolder ms-2">g</span></span>
+                      <span class="col ">🔵<span>10</span><span class="fw-bolder ms-2">g</span></span>
+                    </div>
+
+                  </div>
+                </div>
+
+                <div class="col-md-2  d-flex align-items-center justify-content-center ">
+                  <button class="p-md-1  btn" type="button"><img class="add-btn"
+                      src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN8AAADiCAMAAAD5w+JtAAAAh1BMVEX///8AfwAAegCLvYsAdwAAdADF3MXw9vAAfAAAewAAdgAAcwCaw5qnyKeOv478/vyFtYU6kjpBlEFipGJcolyMuYza6tp3r3ex0bHL4Mvp8+m31be/2b+AtID2+vZrqWspjCkbhxtMm0zT5dM1kTXg7+BGl0ZWn1agx6ByrXLJ3cnW6tYhiiGnk5HBAAAExUlEQVR4nO2d63LiOBBGbY8MsmyHW7gPd5KB3bz/862MkyELGNwioJbqO/9SlcJ9SndbagXBc2ht8vZrZxWG4Ue31x8NnvTY5zDP10JFiQwPSBnpv3q/bUf1U0yGQnyqfSMRst+yHdpP0E6jM7mSSOS2g7ubQVhlV6A6TdsB3scoPa+Z35HRxnaI95ClV+0K0obtIM3Jb+uFYexsCY7r6IWhmNgO1IymqKUXypXtSM3oXu9ajkR726GaMFI19XQfM7YdLJ1W3dJztIZmNVvfATWyHS6ZhKCnsR0ulSml+HQBujbKrwnNTyNfbQdMY16/8ywRc9shkyBWT+3n1nJ3SOxewmhmO2QSW1rz0w1waztkEtcWtRUFaDtkCm/U7kWPEG+2gyawMfBzaRk4onafugN1aYqWG7Q/l96lZQZ+me2gCbwY+L3YDprALwO/X7aDJgA/+HEGfvDjDPzgxxn4wY8z8IMfZ+AHP87AD36cgR/8OAM/+HEGfvDjDPzgxxn4wY8z8IMfZ+AHP87AD36cgR/8OAM/+HEGfvDjDPzg92Ba83nTlPnMwG92x/PmlExOzUbW64aRULExdD0taP44JaKwu8gaNZIdTbKt/u+EenzWPjLRJdLJrueSabynkXtqR2SUrqtzkWy2ymW5Ehl3K5LjLWL37Qpk2r5g93Y1UZlbiOVZT/Pbk8IrkfLktPm0XqorZ5Dif42w4ZmeRnwrwQn9uDp7ZHic05CzYbhA9OdLb0fPpuAC8bTUm/szMJxQ+vV99RO7g5+Pje+Tw8juZ+srUMVce0FNleQOydDv6llUUINUQu6gJvRMZS4hpv6ODgVRFix8bn9yEbx77bcOlrZjeCjLwHYEDwZ+bhOsLAfwWFbB1nYID2UZvHo+PrT9XT7oBcQ+yH2ef+r52cDn9UORtdjn+bVeHwU9nzuYwCBVtTsc3k94/ILi8H7J5xVu+f7a1x708/0u7SoKh5BfH1hWXjbB46UgA/8+b+rS6x4/cPr4hSz6vsdg4V0TPLlz6I9ngun0ZINIz6sqGp/qBcGLP51McvFWwbEvO5jU+vJlNa1Z7MFiXsjqmxYme7f3R4aJCneVdgXN3TYWDm5vDYvNn/Vu1Z2MhttEKSXMManmyR3P09FGYS8jXLPXHGz+aZgyNvimnyzGxs/bbP597j2zuN/i3A/nO/gAP/hxBn7w4wz84McZ+MGPM/CDH2fgBz/OwA9+nIEf/DgDP/hxBn7w4wz84McZ+MGPM/CDH2fgBz/OwA9+nIEf/DgDP/hxBn7w44zvfr6fX8kM/DLbQRPIDfxy20ETGNFPY4vqU5f8GNMPY6tLR4K5YpAUVr3d/lk2tAzqJ+UKHOt8UE/wyqXtkEnsqQdUy1RJzkDuQMV5QgXONGOin3ruAeG76dAaoFzbDpgIMa2hY9VTjxC0EVDe/kVmkK6QEy5NrkualAKUTg3uJf36LVC5NLf+S+2sasm77VCNqJ1VLXJs7PtiV2+QTwlpTXgxq9PHpE42vpLh7RJ0WS8IshttUKoaCYU4cz3pmFhevw/UAVqztGotGCn3pi0XmOyVOB8KEyH7l9Owucc8Xwv191JdKSP9V8+1FcN1Wpu8/dpZab2Pbq8/qrjC9ef5DxGbeQi22vYnAAAAAElFTkSuQmCC"
+                      alt="" style="height: 6vh;opacity: 100;"></button>
+                </div>
+              </div>
+
+            </div>
+            <hr>
+
+            <!-- Meal Option Card -->
+            <div class="card mb-3 ms-md-1 " style="max-width: 540px;height: auto;">
+
+              <div class="row g-0">
+                <div class="col-md-4 ">
+                  <img
+                    src="https://media.post.rvohealth.io/wp-content/uploads/2020/09/eggs-breakfast-avocado-732x549-thumbnail.jpg"
+                    style="height: 150px;width: 280px;" alt="..." class="img-fluid rounded-start">
+                </div>
+                <div class="col-md-6">
+                  <div class="card-body px-4 py-2 yb-0" style="height: 64px;overflow: hidden">
+                    <h5 class="card-title" style="line-height: 1.29;">Chickpea and Spinach Curry.</h5>
+                  </div>
+                  <small class="form-text text-muted ms-5">This Meal Contain:</small>
+                  <div class="container ">
+                    <div class="row">
+                      <span class="col ms-md-4 ms-1" data-bs-toggle="popover" data-bs-trigger="hover focus"
+                        data-bs-content="Calories">🟢<span>1000</span><span class="fw-bolder ms-2">kc</span></span>
+                      <span class="col ">🔴<span>30</span><span class="fw-bolder ms-2">g</span></span>
+                    </div>
+                    <div class="row">
+                      <span class="col ms-md-4 mb-2 ms-1">🟡<span>12</span><span class="fw-bolder ms-2">g</span></span>
+                      <span class="col ">🔵<span>10</span><span class="fw-bolder ms-2">g</span></span>
+                    </div>
+
+                  </div>
+                </div>
+
+                <div class="col-md-2  d-flex align-items-center justify-content-center ">
+                  <button class="p-md-1  btn" type="button"><img class="add-btn"
+                      src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN8AAADiCAMAAAD5w+JtAAAAh1BMVEX///8AfwAAegCLvYsAdwAAdADF3MXw9vAAfAAAewAAdgAAcwCaw5qnyKeOv478/vyFtYU6kjpBlEFipGJcolyMuYza6tp3r3ex0bHL4Mvp8+m31be/2b+AtID2+vZrqWspjCkbhxtMm0zT5dM1kTXg7+BGl0ZWn1agx6ByrXLJ3cnW6tYhiiGnk5HBAAAExUlEQVR4nO2d63LiOBBGbY8MsmyHW7gPd5KB3bz/862MkyELGNwioJbqO/9SlcJ9SndbagXBc2ht8vZrZxWG4Ue31x8NnvTY5zDP10JFiQwPSBnpv3q/bUf1U0yGQnyqfSMRst+yHdpP0E6jM7mSSOS2g7ubQVhlV6A6TdsB3scoPa+Z35HRxnaI95ClV+0K0obtIM3Jb+uFYexsCY7r6IWhmNgO1IymqKUXypXtSM3oXu9ajkR726GaMFI19XQfM7YdLJ1W3dJztIZmNVvfATWyHS6ZhKCnsR0ulSml+HQBujbKrwnNTyNfbQdMY16/8ywRc9shkyBWT+3n1nJ3SOxewmhmO2QSW1rz0w1waztkEtcWtRUFaDtkCm/U7kWPEG+2gyawMfBzaRk4onafugN1aYqWG7Q/l96lZQZ+me2gCbwY+L3YDprALwO/X7aDJgA/+HEGfvDjDPzgxxn4wY8z8IMfZ+AHP87AD36cgR/8OAM/+HEGfvDjDPzgxxn4wY8z8IMfZ+AHP87AD36cgR/8OAM/+HEGfvDjDPzg92Ba83nTlPnMwG92x/PmlExOzUbW64aRULExdD0taP44JaKwu8gaNZIdTbKt/u+EenzWPjLRJdLJrueSabynkXtqR2SUrqtzkWy2ymW5Ehl3K5LjLWL37Qpk2r5g93Y1UZlbiOVZT/Pbk8IrkfLktPm0XqorZ5Dif42w4ZmeRnwrwQn9uDp7ZHic05CzYbhA9OdLb0fPpuAC8bTUm/szMJxQ+vV99RO7g5+Pje+Tw8juZ+srUMVce0FNleQOydDv6llUUINUQu6gJvRMZS4hpv6ODgVRFix8bn9yEbx77bcOlrZjeCjLwHYEDwZ+bhOsLAfwWFbB1nYID2UZvHo+PrT9XT7oBcQ+yH2ef+r52cDn9UORtdjn+bVeHwU9nzuYwCBVtTsc3k94/ILi8H7J5xVu+f7a1x708/0u7SoKh5BfH1hWXjbB46UgA/8+b+rS6x4/cPr4hSz6vsdg4V0TPLlz6I9ngun0ZINIz6sqGp/qBcGLP51McvFWwbEvO5jU+vJlNa1Z7MFiXsjqmxYme7f3R4aJCneVdgXN3TYWDm5vDYvNn/Vu1Z2MhttEKSXMManmyR3P09FGYS8jXLPXHGz+aZgyNvimnyzGxs/bbP597j2zuN/i3A/nO/gAP/hxBn7w4wz84McZ+MGPM/CDH2fgBz/OwA9+nIEf/DgDP/hxBn7w4wz84McZ+MGPM/CDH2fgBz/OwA9+nIEf/DgDP/hxBn7w44zvfr6fX8kM/DLbQRPIDfxy20ETGNFPY4vqU5f8GNMPY6tLR4K5YpAUVr3d/lk2tAzqJ+UKHOt8UE/wyqXtkEnsqQdUy1RJzkDuQMV5QgXONGOin3ruAeG76dAaoFzbDpgIMa2hY9VTjxC0EVDe/kVmkK6QEy5NrkualAKUTg3uJf36LVC5NLf+S+2sasm77VCNqJ1VLXJs7PtiV2+QTwlpTXgxq9PHpE42vpLh7RJ0WS8IshttUKoaCYU4cz3pmFhevw/UAVqztGotGCn3pi0XmOyVOB8KEyH7l9Owucc8Xwv191JdKSP9V8+1FcN1Wpu8/dpZab2Pbq8/qrjC9ef5DxGbeQi22vYnAAAAAElFTkSuQmCC"
+                      alt="" style="height: 6vh;opacity: 100;"></button>
+                </div>
+              </div>
+
+            </div>
+            <hr>
+
+            <!-- Meal Option Card -->
+            <div class="card mb-3 ms-md-1 " style="max-width: 540px;height: auto;">
+
+              <div class="row g-0">
+                <div class="col-md-4 ">
+                  <img
+                    src="https://media.post.rvohealth.io/wp-content/uploads/2020/09/eggs-breakfast-avocado-732x549-thumbnail.jpg"
+                    style="height: 150px;width: 280px;" alt="..." class="img-fluid rounded-start">
+                </div>
+                <div class="col-md-6">
+                  <div class="card-body px-4 py-2 yb-0" style="height: 64px;overflow: hidden">
+                    <h5 class="card-title" style="line-height: 1.29;">Mediterranean Chickpea Salad.</h5>
+                  </div>
+                  <small class="form-text text-muted ms-5">This Meal Contain:</small>
+                  <div class="container ">
+                    <div class="row">
+                      <span class="col ms-md-4 ms-1" data-bs-toggle="popover" data-bs-trigger="hover focus"
+                        data-bs-content="Calories">🟢<span>1000</span><span class="fw-bolder ms-2">kc</span></span>
+                      <span class="col ">🔴<span>35</span><span class="fw-bolder ms-2">g</span></span>
+                    </div>
+                    <div class="row">
+                      <span class="col ms-md-4 mb-2 ms-1">🟡<span>10</span><span class="fw-bolder ms-2">g</span></span>
+                      <span class="col ">🔵<span>15</span><span class="fw-bolder ms-2">g</span></span>
+                    </div>
+
+                  </div>
+                </div>
+
+                <div class="col-md-2  d-flex align-items-center justify-content-center ">
+                  <button class="p-md-1  btn" type="button"><img class="add-btn"
+                      src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN8AAADiCAMAAAD5w+JtAAAAh1BMVEX///8AfwAAegCLvYsAdwAAdADF3MXw9vAAfAAAewAAdgAAcwCaw5qnyKeOv478/vyFtYU6kjpBlEFipGJcolyMuYza6tp3r3ex0bHL4Mvp8+m31be/2b+AtID2+vZrqWspjCkbhxtMm0zT5dM1kTXg7+BGl0ZWn1agx6ByrXLJ3cnW6tYhiiGnk5HBAAAExUlEQVR4nO2d63LiOBBGbY8MsmyHW7gPd5KB3bz/862MkyELGNwioJbqO/9SlcJ9SndbagXBc2ht8vZrZxWG4Ue31x8NnvTY5zDP10JFiQwPSBnpv3q/bUf1U0yGQnyqfSMRst+yHdpP0E6jM7mSSOS2g7ubQVhlV6A6TdsB3scoPa+Z35HRxnaI95ClV+0K0obtIM3Jb+uFYexsCY7r6IWhmNgO1IymqKUXypXtSM3oXu9ajkR726GaMFI19XQfM7YdLJ1W3dJztIZmNVvfATWyHS6ZhKCnsR0ulSml+HQBujbKrwnNTyNfbQdMY16/8ywRc9shkyBWT+3n1nJ3SOxewmhmO2QSW1rz0w1waztkEtcWtRUFaDtkCm/U7kWPEG+2gyawMfBzaRk4onafugN1aYqWG7Q/l96lZQZ+me2gCbwY+L3YDprALwO/X7aDJgA/+HEGfvDjDPzgxxn4wY8z8IMfZ+AHP87AD36cgR/8OAM/+HEGfvDjDPzgxxn4wY8z8IMfZ+AHP87AD36cgR/8OAM/+HEGfvDjDPzg92Ba83nTlPnMwG92x/PmlExOzUbW64aRULExdD0taP44JaKwu8gaNZIdTbKt/u+EenzWPjLRJdLJrueSabynkXtqR2SUrqtzkWy2ymW5Ehl3K5LjLWL37Qpk2r5g93Y1UZlbiOVZT/Pbk8IrkfLktPm0XqorZ5Dif42w4ZmeRnwrwQn9uDp7ZHic05CzYbhA9OdLb0fPpuAC8bTUm/szMJxQ+vV99RO7g5+Pje+Tw8juZ+srUMVce0FNleQOydDv6llUUINUQu6gJvRMZS4hpv6ODgVRFix8bn9yEbx77bcOlrZjeCjLwHYEDwZ+bhOsLAfwWFbB1nYID2UZvHo+PrT9XT7oBcQ+yH2ef+r52cDn9UORtdjn+bVeHwU9nzuYwCBVtTsc3k94/ILi8H7J5xVu+f7a1x708/0u7SoKh5BfH1hWXjbB46UgA/8+b+rS6x4/cPr4hSz6vsdg4V0TPLlz6I9ngun0ZINIz6sqGp/qBcGLP51McvFWwbEvO5jU+vJlNa1Z7MFiXsjqmxYme7f3R4aJCneVdgXN3TYWDm5vDYvNn/Vu1Z2MhttEKSXMManmyR3P09FGYS8jXLPXHGz+aZgyNvimnyzGxs/bbP597j2zuN/i3A/nO/gAP/hxBn7w4wz84McZ+MGPM/CDH2fgBz/OwA9+nIEf/DgDP/hxBn7w4wz84McZ+MGPM/CDH2fgBz/OwA9+nIEf/DgDP/hxBn7w44zvfr6fX8kM/DLbQRPIDfxy20ETGNFPY4vqU5f8GNMPY6tLR4K5YpAUVr3d/lk2tAzqJ+UKHOt8UE/wyqXtkEnsqQdUy1RJzkDuQMV5QgXONGOin3ruAeG76dAaoFzbDpgIMa2hY9VTjxC0EVDe/kVmkK6QEy5NrkualAKUTg3uJf36LVC5NLf+S+2sasm77VCNqJ1VLXJs7PtiV2+QTwlpTXgxq9PHpE42vpLh7RJ0WS8IshttUKoaCYU4cz3pmFhevw/UAVqztGotGCn3pi0XmOyVOB8KEyH7l9Owucc8Xwv191JdKSP9V8+1FcN1Wpu8/dpZab2Pbq8/qrjC9ef5DxGbeQi22vYnAAAAAElFTkSuQmCC"
+                      alt="" style="height: 6vh;opacity: 100;"></button>
+                </div>
+              </div>
+
+            </div>
+            <hr>
+
+            <!-- Meal Option Card -->
+            <div class="card mb-3 ms-md-1 " style="max-width: 540px;height: auto;">
+
+              <div class="row g-0">
+                <div class="col-md-4 ">
+                  <img
+                    src="https://media.post.rvohealth.io/wp-content/uploads/2020/09/eggs-breakfast-avocado-732x549-thumbnail.jpg"
+                    style="height: 150px;width: 280px;" alt="..." class="img-fluid rounded-start">
+                </div>
+                <div class="col-md-6">
+                  <div class="card-body px-4 py-2 yb-0" style="height: 64px;overflow: hidden">
+                    <h5 class="card-title" style="line-height: 1.29;">Quinoa Stuffed Bell Peppers.</h5>
+                  </div>
+                  <small class="form-text text-muted ms-5">This Meal Contain:</small>
+                  <div class="container ">
+                    <div class="row">
+                      <span class="col ms-md-4 ms-1" data-bs-toggle="popover" data-bs-trigger="hover focus"
+                        data-bs-content="Calories">🟢<span>1000</span><span class="fw-bolder ms-2">kc</span></span>
+                      <span class="col ">🔴<span>30</span><span class="fw-bolder ms-2">g</span></span>
+                    </div>
+                    <div class="row">
+                      <span class="col ms-md-4 mb-2 ms-1">🟡<span>10</span><span class="fw-bolder ms-2">g</span></span>
+                      <span class="col ">🔵<span>5</span><span class="fw-bolder ms-2">g</span></span>
+                    </div>
+
+                  </div>
+                </div>
+
+                <div class="col-md-2  d-flex align-items-center justify-content-center ">
+                  <button class="p-md-1  btn" type="button"><img class="add-btn"
+                      src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN8AAADiCAMAAAD5w+JtAAAAh1BMVEX///8AfwAAegCLvYsAdwAAdADF3MXw9vAAfAAAewAAdgAAcwCaw5qnyKeOv478/vyFtYU6kjpBlEFipGJcolyMuYza6tp3r3ex0bHL4Mvp8+m31be/2b+AtID2+vZrqWspjCkbhxtMm0zT5dM1kTXg7+BGl0ZWn1agx6ByrXLJ3cnW6tYhiiGnk5HBAAAExUlEQVR4nO2d63LiOBBGbY8MsmyHW7gPd5KB3bz/862MkyELGNwioJbqO/9SlcJ9SndbagXBc2ht8vZrZxWG4Ue31x8NnvTY5zDP10JFiQwPSBnpv3q/bUf1U0yGQnyqfSMRst+yHdpP0E6jM7mSSOS2g7ubQVhlV6A6TdsB3scoPa+Z35HRxnaI95ClV+0K0obtIM3Jb+uFYexsCY7r6IWhmNgO1IymqKUXypXtSM3oXu9ajkR726GaMFI19XQfM7YdLJ1W3dJztIZmNVvfATWyHS6ZhKCnsR0ulSml+HQBujbKrwnNTyNfbQdMY16/8ywRc9shkyBWT+3n1nJ3SOxewmhmO2QSW1rz0w1waztkEtcWtRUFaDtkCm/U7kWPEG+2gyawMfBzaRk4onafugN1aYqWG7Q/l96lZQZ+me2gCbwY+L3YDprALwO/X7aDJgA/+HEGfvDjDPzgxxn4wY8z8IMfZ+AHP87AD36cgR/8OAM/+HEGfvDjDPzgxxn4wY8z8IMfZ+AHP87AD36cgR/8OAM/+HEGfvDjDPzg92Ba83nTlPnMwG92x/PmlExOzUbW64aRULExdD0taP44JaKwu8gaNZIdTbKt/u+EenzWPjLRJdLJrueSabynkXtqR2SUrqtzkWy2ymW5Ehl3K5LjLWL37Qpk2r5g93Y1UZlbiOVZT/Pbk8IrkfLktPm0XqorZ5Dif42w4ZmeRnwrwQn9uDp7ZHic05CzYbhA9OdLb0fPpuAC8bTUm/szMJxQ+vV99RO7g5+Pje+Tw8juZ+srUMVce0FNleQOydDv6llUUINUQu6gJvRMZS4hpv6ODgVRFix8bn9yEbx77bcOlrZjeCjLwHYEDwZ+bhOsLAfwWFbB1nYID2UZvHo+PrT9XT7oBcQ+yH2ef+r52cDn9UORtdjn+bVeHwU9nzuYwCBVtTsc3k94/ILi8H7J5xVu+f7a1x708/0u7SoKh5BfH1hWXjbB46UgA/8+b+rS6x4/cPr4hSz6vsdg4V0TPLlz6I9ngun0ZINIz6sqGp/qBcGLP51McvFWwbEvO5jU+vJlNa1Z7MFiXsjqmxYme7f3R4aJCneVdgXN3TYWDm5vDYvNn/Vu1Z2MhttEKSXMManmyR3P09FGYS8jXLPXHGz+aZgyNvimnyzGxs/bbP597j2zuN/i3A/nO/gAP/hxBn7w4wz84McZ+MGPM/CDH2fgBz/OwA9+nIEf/DgDP/hxBn7w4wz84McZ+MGPM/CDH2fgBz/OwA9+nIEf/DgDP/hxBn7w44zvfr6fX8kM/DLbQRPIDfxy20ETGNFPY4vqU5f8GNMPY6tLR4K5YpAUVr3d/lk2tAzqJ+UKHOt8UE/wyqXtkEnsqQdUy1RJzkDuQMV5QgXONGOin3ruAeG76dAaoFzbDpgIMa2hY9VTjxC0EVDe/kVmkK6QEy5NrkualAKUTg3uJf36LVC5NLf+S+2sasm77VCNqJ1VLXJs7PtiV2+QTwlpTXgxq9PHpE42vpLh7RJ0WS8IshttUKoaCYU4cz3pmFhevw/UAVqztGotGCn3pi0XmOyVOB8KEyH7l9Owucc8Xwv191JdKSP9V8+1FcN1Wpu8/dpZab2Pbq8/qrjC9ef5DxGbeQi22vYnAAAAAElFTkSuQmCC"
+                      alt="" style="height: 6vh;opacity: 100;"></button>
+                </div>
+              </div>
+
+            </div>
+            <hr>
+
+            <!-- Meal Option Card -->
+            <div class="card mb-3 ms-md-1 " style="max-width: 540px;height: auto;">
+
+              <div class="row g-0">
+                <div class="col-md-4 ">
+                  <img
+                    src="https://media.post.rvohealth.io/wp-content/uploads/2020/09/eggs-breakfast-avocado-732x549-thumbnail.jpg"
+                    style="height: 150px;width: 280px;" alt="..." class="img-fluid rounded-start">
+                </div>
+                <div class="col-md-6">
+                  <div class="card-body px-4 py-2 yb-0" style="height: 64px;overflow: hidden">
+                    <h5 class="card-title" style="line-height: 1.29;">Black Bean and Sweet Potato Tacos.</h5>
+                  </div>
+                  <small class="form-text text-muted ms-5">This Meal Contain:</small>
+                  <div class="container ">
+                    <div class="row">
+                      <span class="col ms-md-4 ms-1" data-bs-toggle="popover" data-bs-trigger="hover focus"
+                        data-bs-content="Calories">🟢<span>1000</span><span class="fw-bolder ms-2">kc</span></span>
+                      <span class="col ">🔴<span>40</span><span class="fw-bolder ms-2">g</span></span>
+                    </div>
+                    <div class="row">
+                      <span class="col ms-md-4 mb-2 ms-1">🟡<span>12</span><span class="fw-bolder ms-2">g</span></span>
+                      <span class="col ">🔵<span>5</span><span class="fw-bolder ms-2">g</span></span>
+                    </div>
+
+                  </div>
+                </div>
+
+                <div class="col-md-2  d-flex align-items-center justify-content-center ">
+                  <button class="p-md-1  btn" type="button"><img class="add-btn"
+                      src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN8AAADiCAMAAAD5w+JtAAAAh1BMVEX///8AfwAAegCLvYsAdwAAdADF3MXw9vAAfAAAewAAdgAAcwCaw5qnyKeOv478/vyFtYU6kjpBlEFipGJcolyMuYza6tp3r3ex0bHL4Mvp8+m31be/2b+AtID2+vZrqWspjCkbhxtMm0zT5dM1kTXg7+BGl0ZWn1agx6ByrXLJ3cnW6tYhiiGnk5HBAAAExUlEQVR4nO2d63LiOBBGbY8MsmyHW7gPd5KB3bz/862MkyELGNwioJbqO/9SlcJ9SndbagXBc2ht8vZrZxWG4Ue31x8NnvTY5zDP10JFiQwPSBnpv3q/bUf1U0yGQnyqfSMRst+yHdpP0E6jM7mSSOS2g7ubQVhlV6A6TdsB3scoPa+Z35HRxnaI95ClV+0K0obtIM3Jb+uFYexsCY7r6IWhmNgO1IymqKUXypXtSM3oXu9ajkR726GaMFI19XQfM7YdLJ1W3dJztIZmNVvfATWyHS6ZhKCnsR0ulSml+HQBujbKrwnNTyNfbQdMY16/8ywRc9shkyBWT+3n1nJ3SOxewmhmO2QSW1rz0w1waztkEtcWtRUFaDtkCm/U7kWPEG+2gyawMfBzaRk4onafugN1aYqWG7Q/l96lZQZ+me2gCbwY+L3YDprALwO/X7aDJgA/+HEGfvDjDPzgxxn4wY8z8IMfZ+AHP87AD36cgR/8OAM/+HEGfvDjDPzgxxn4wY8z8IMfZ+AHP87AD36cgR/8OAM/+HEGfvDjDPzg92Ba83nTlPnMwG92x/PmlExOzUbW64aRULExdD0taP44JaKwu8gaNZIdTbKt/u+EenzWPjLRJdLJrueSabynkXtqR2SUrqtzkWy2ymW5Ehl3K5LjLWL37Qpk2r5g93Y1UZlbiOVZT/Pbk8IrkfLktPm0XqorZ5Dif42w4ZmeRnwrwQn9uDp7ZHic05CzYbhA9OdLb0fPpuAC8bTUm/szMJxQ+vV99RO7g5+Pje+Tw8juZ+srUMVce0FNleQOydDv6llUUINUQu6gJvRMZS4hpv6ODgVRFix8bn9yEbx77bcOlrZjeCjLwHYEDwZ+bhOsLAfwWFbB1nYID2UZvHo+PrT9XT7oBcQ+yH2ef+r52cDn9UORtdjn+bVeHwU9nzuYwCBVtTsc3k94/ILi8H7J5xVu+f7a1x708/0u7SoKh5BfH1hWXjbB46UgA/8+b+rS6x4/cPr4hSz6vsdg4V0TPLlz6I9ngun0ZINIz6sqGp/qBcGLP51McvFWwbEvO5jU+vJlNa1Z7MFiXsjqmxYme7f3R4aJCneVdgXN3TYWDm5vDYvNn/Vu1Z2MhttEKSXMManmyR3P09FGYS8jXLPXHGz+aZgyNvimnyzGxs/bbP597j2zuN/i3A/nO/gAP/hxBn7w4wz84McZ+MGPM/CDH2fgBz/OwA9+nIEf/DgDP/hxBn7w4wz84McZ+MGPM/CDH2fgBz/OwA9+nIEf/DgDP/hxBn7w44zvfr6fX8kM/DLbQRPIDfxy20ETGNFPY4vqU5f8GNMPY6tLR4K5YpAUVr3d/lk2tAzqJ+UKHOt8UE/wyqXtkEnsqQdUy1RJzkDuQMV5QgXONGOin3ruAeG76dAaoFzbDpgIMa2hY9VTjxC0EVDe/kVmkK6QEy5NrkualAKUTg3uJf36LVC5NLf+S+2sasm77VCNqJ1VLXJs7PtiV2+QTwlpTXgxq9PHpE42vpLh7RJ0WS8IshttUKoaCYU4cz3pmFhevw/UAVqztGotGCn3pi0XmOyVOB8KEyH7l9Owucc8Xwv191JdKSP9V8+1FcN1Wpu8/dpZab2Pbq8/qrjC9ef5DxGbeQi22vYnAAAAAElFTkSuQmCC"
+                      alt="" style="height: 6vh;opacity: 100;"></button>
+                </div>
+              </div>
+
+            </div>
+            <hr>
+
+            <!-- Meal Option Card -->
+            <div class="card mb-3 ms-md-1 " style="max-width: 540px;height: auto;">
+
+              <div class="row g-0">
+                <div class="col-md-4 ">
+                  <img
+                    src="https://media.post.rvohealth.io/wp-content/uploads/2020/09/eggs-breakfast-avocado-732x549-thumbnail.jpg"
+                    style="height: 150px;width: 280px;" alt="..." class="img-fluid rounded-start">
+                </div>
+                <div class="col-md-6">
+                  <div class="card-body px-4 py-2 yb-0" style="height: 64px;overflow: hidden">
+                    <h5 class="card-title" style="line-height: 1.29;">Greek Salad with Tofu.</h5>
+                  </div>
+                  <small class="form-text text-muted ms-5">This Meal Contain:</small>
+                  <div class="container ">
+                    <div class="row">
+                      <span class="col ms-md-4 ms-1" data-bs-toggle="popover" data-bs-trigger="hover focus"
+                        data-bs-content="Calories">🟢<span>1000</span><span class="fw-bolder ms-2">kc</span></span>
+                      <span class="col ">🔴<span>15</span><span class="fw-bolder ms-2">g</span></span>
+                    </div>
+                    <div class="row">
+                      <span class="col ms-md-4 mb-2 ms-1">🟡<span>10</span><span class="fw-bolder ms-2">g</span></span>
+                      <span class="col ">🔵<span>15</span><span class="fw-bolder ms-2">g</span></span>
+                    </div>
+
+                  </div>
+                </div>
+
+                <div class="col-md-2  d-flex align-items-center justify-content-center ">
+                  <button class="p-md-1  btn" type="button"><img class="add-btn"
+                      src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN8AAADiCAMAAAD5w+JtAAAAh1BMVEX///8AfwAAegCLvYsAdwAAdADF3MXw9vAAfAAAewAAdgAAcwCaw5qnyKeOv478/vyFtYU6kjpBlEFipGJcolyMuYza6tp3r3ex0bHL4Mvp8+m31be/2b+AtID2+vZrqWspjCkbhxtMm0zT5dM1kTXg7+BGl0ZWn1agx6ByrXLJ3cnW6tYhiiGnk5HBAAAExUlEQVR4nO2d63LiOBBGbY8MsmyHW7gPd5KB3bz/862MkyELGNwioJbqO/9SlcJ9SndbagXBc2ht8vZrZxWG4Ue31x8NnvTY5zDP10JFiQwPSBnpv3q/bUf1U0yGQnyqfSMRst+yHdpP0E6jM7mSSOS2g7ubQVhlV6A6TdsB3scoPa+Z35HRxnaI95ClV+0K0obtIM3Jb+uFYexsCY7r6IWhmNgO1IymqKUXypXtSM3oXu9ajkR726GaMFI19XQfM7YdLJ1W3dJztIZmNVvfATWyHS6ZhKCnsR0ulSml+HQBujbKrwnNTyNfbQdMY16/8ywRc9shkyBWT+3n1nJ3SOxewmhmO2QSW1rz0w1waztkEtcWtRUFaDtkCm/U7kWPEG+2gyawMfBzaRk4onafugN1aYqWG7Q/l96lZQZ+me2gCbwY+L3YDprALwO/X7aDJgA/+HEGfvDjDPzgxxn4wY8z8IMfZ+AHP87AD36cgR/8OAM/+HEGfvDjDPzgxxn4wY8z8IMfZ+AHP87AD36cgR/8OAM/+HEGfvDjDPzg92Ba83nTlPnMwG92x/PmlExOzUbW64aRULExdD0taP44JaKwu8gaNZIdTbKt/u+EenzWPjLRJdLJrueSabynkXtqR2SUrqtzkWy2ymW5Ehl3K5LjLWL37Qpk2r5g93Y1UZlbiOVZT/Pbk8IrkfLktPm0XqorZ5Dif42w4ZmeRnwrwQn9uDp7ZHic05CzYbhA9OdLb0fPpuAC8bTUm/szMJxQ+vV99RO7g5+Pje+Tw8juZ+srUMVce0FNleQOydDv6llUUINUQu6gJvRMZS4hpv6ODgVRFix8bn9yEbx77bcOlrZjeCjLwHYEDwZ+bhOsLAfwWFbB1nYID2UZvHo+PrT9XT7oBcQ+yH2ef+r52cDn9UORtdjn+bVeHwU9nzuYwCBVtTsc3k94/ILi8H7J5xVu+f7a1x708/0u7SoKh5BfH1hWXjbB46UgA/8+b+rS6x4/cPr4hSz6vsdg4V0TPLlz6I9ngun0ZINIz6sqGp/qBcGLP51McvFWwbEvO5jU+vJlNa1Z7MFiXsjqmxYme7f3R4aJCneVdgXN3TYWDm5vDYvNn/Vu1Z2MhttEKSXMManmyR3P09FGYS8jXLPXHGz+aZgyNvimnyzGxs/bbP597j2zuN/i3A/nO/gAP/hxBn7w4wz84McZ+MGPM/CDH2fgBz/OwA9+nIEf/DgDP/hxBn7w4wz84McZ+MGPM/CDH2fgBz/OwA9+nIEf/DgDP/hxBn7w44zvfr6fX8kM/DLbQRPIDfxy20ETGNFPY4vqU5f8GNMPY6tLR4K5YpAUVr3d/lk2tAzqJ+UKHOt8UE/wyqXtkEnsqQdUy1RJzkDuQMV5QgXONGOin3ruAeG76dAaoFzbDpgIMa2hY9VTjxC0EVDe/kVmkK6QEy5NrkualAKUTg3uJf36LVC5NLf+S+2sasm77VCNqJ1VLXJs7PtiV2+QTwlpTXgxq9PHpE42vpLh7RJ0WS8IshttUKoaCYU4cz3pmFhevw/UAVqztGotGCn3pi0XmOyVOB8KEyH7l9Owucc8Xwv191JdKSP9V8+1FcN1Wpu8/dpZab2Pbq8/qrjC9ef5DxGbeQi22vYnAAAAAElFTkSuQmCC"
+                      alt="" style="height: 6vh;opacity: 100;"></button>
+                </div>
+              </div>
+
+            </div>
+            <hr>
+          </div>
+
+
+          <!-- Link trigger modal -->
+          <div class=" ms-5">
+            <span class="text-decoration-underline text-bold" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+              How Do These Bars Works ?
+            </span>
+          </div>
+
+          <!-- Modal -->
+          <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+            aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="staticBackdropLabel">How Do These Bars Works ?</h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ex, fuga quod debitis veniam ipsam quos.
+                  Earum
+                  corporis consequuntur dolore asperiores! Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Facere
+                  veritatis veniam provident maiores cupiditate quaerat aliquid velit odit, laboriosam fugit accusamus
+                  officia nam assumenda ducimus cum sequi autem expedita repellendus iste commodi nihil! Neque voluptate
+                  odio nam at, fuga architecto quae culpa reprehenderit modi ad dolore illo animi repellat nihil.
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Understood</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- <div class="mt-5 ms-5 border ps-3 pt-2 " style="background-color: azure;">
+            <p>We Divided Your Energy Needs Into Multiple Meal Moments.</p>
+          </div>
+
+          <div class="mt-5 ms-5 border ps-3 pt-2 " style="background-color: azure;">
+            <p>For every meal moment you can tune your meal or choose a pro meal you like.</p>
+          </div> -->
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <footer class="mt-5 pt-5 text-body-secondary border text-center text-small">
+    <p class="mb-1">© 2017–2023 FitAthlete</p>
+    <ul class="list-inline">
+      <li class="list-inline-item"><a href="#">Privacy</a></li>
+      <li class="list-inline-item"><a href="#">Terms</a></li>
+      <li class="list-inline-item"><a href="#">Support</a></li>
+    </ul>
+  </footer>+
+
+
+
+  <script>
+    let currentdate = new Date
+    let d1 = currentdate.toDateString()
+    let d = currentdate.getDate()
+    let m = currentdate.getMonth()
+    let y = currentdate.getFullYear()
+    var month = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
+    let Today = `${d} ${month[m]},${y}`
+    document.getElementById("Today").innerText = Today
+
+    
+    function addEvent() {
+      document.getElementById("Event-name").innerText = document.getElementById("input-e-name").value
+      var d2 = document.getElementById("Event-date").innerText = document.getElementById("input-e-date").value
+
+      var date1 = new Date(d1);
+      var date2 = new Date(d2);
+      var Difference_In_Time = date2.getTime() - date1.getTime();
+      var Difference_In_Days = Difference_In_Time / (1000 * 3600 * 24);
+      let t = Math.floor(Difference_In_Days)
+      let tdays = t >= 0 && t <= 9 ? `0${t}` : `${t}`
+      document.getElementById("Tdays").innerText = tdays;
+    }
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
