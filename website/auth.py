@@ -21,7 +21,7 @@ def login():
             if check_password_hash(user.password, login_password):
                 flash("Logged in successfully!", category="success")
                 login_user(user, remember=True)
-                return render_template("profile.html", user=current_user)
+                return redirect(url_for('auth.profile', user=user))
             else:
                 flash("Incorrect password, try again.", category="error")
         else:
@@ -112,22 +112,21 @@ def info(user=None):
         except Exception as e:
             # Print or log the exception to see if there's a specific database issue
             print(str(e))
-        # login_user(user, remember=True)
+        login_user(user, remember=True)
         flash("Account Created!", category="success")
         return render_template("profile.html", user=current_user)
 
     return render_template("info.html")
 
 
-@auth.route("/profile", methods=["GET", "POST"])
+@auth.route("/profile.html", methods=["GET", "POST"])
 @login_required
-def profile():
+def profile(user=None):
     if request.method == "POST":
         food_name = request.form.get("food_name")
-        print(food_name)
         nutrition_info = find_nutrition(food_name)
-        nutrition_info = nutrition_info["food"][0]
-        data = {
+        nutrition_info = nutrition_info["foods"][0]
+        data_final = {
             "food_name": nutrition_info["food_name"],
             "nf_calories": nutrition_info["nf_calories"],
             "carbohydrate": nutrition_info["nf_total_carbohydrate"],
@@ -135,9 +134,10 @@ def profile():
             "fat": nutrition_info["nf_total_fat"],
             "photo": nutrition_info["photo"]["thumb"],
         }
-        return jsonify(data)
-
-    return render_template("profile.html")
+        #return jsonify(data)
+        #return redirect(url_for("auth.profile", data=data_final))
+        return render_template("profile.html", data=data_final, user=user)
+    return render_template("profile.html", user=user)
 
 
 @auth.route("/logout")
