@@ -126,22 +126,7 @@
                         <a class="nav-link ">Contact</a>
                     </li>
                 </ul>
-                <form class="d-flex">
-                    {% if user.is_authenticated %}
-
-                    <!-- Logout Button -->
-                    <button class="btn  me-4" id="lsbtn" type="submit"><a class="nav-link"
-                            href="/logout">Logout</a></button>
-
-                    {% else %}
-
-                    <!-- <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"> -->
-                    <button class="btn btn me-2" id="lsbtn" type="submit"><a class="nav-link"
-                            href="login.html">LogIn</a></button>
-                    <button class="btn  me-4" id="lsbtn" type="submit"><a class="nav-link"
-                            href="signup.html">SignUp</a></button>
-
-                    {% endif %}
+                }
                 </form>
             </div>
         </div>
@@ -176,13 +161,13 @@
 
                 <div class="form-group mt-2">
                     <label for="Athlete" class="form-label">Athlete's Name</label>
-                    <input type="text" class="form-control bg-border" id="Athlete" placeholder="Name">
+                    <input type="text" class="form-control bg-border" id="Athlete" placeholder="Name" id="name" name="name">
                 </div>
 
                 <!-- age -->
                 <div class="form-group w-50 mt-4">
                     <label for="Age" class="form-label">Age</label>
-                    <input type="text" class="form-control bg-border" maxlength="2" id="Age" placeholder="Years">
+                    <input type="text" class="form-control bg-border" maxlength="2" id="Age" placeholder="Years" id="age" name="age">
                 </div>
 
                 <!-- Gender -->
@@ -194,36 +179,37 @@
                         <label class="form-check-label" for="Male">Male</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input bg-border gender" type="radio" name="Gender" id="Female"
-                            value="FEMALE">
+                        <input class="form-check-input bg-border gender" type="radio" name="gender" id="Female" value="FEMALE">
                         <label class="form-check-label" for="Female">Female</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input bg-border gender" type="radio" name="Gender" id="Other"
-                            value="OTHER">
+                        <input class="form-check-input bg-border gender" type="radio" name="gender" id="Other" value="OTHER">
                         <label class="form-check-label" for="Other">Other</label>
                     </div>
                 </div>
+                
 
                 <!-- Weight -->
 
                 <div class="form-group mt-4 w-50">
                     <label for="Weight" class="form-label">Weight</label>
-                    <input type="text" class="form-control bg-border" maxlength="5" id="Weight" placeholder="kg">
+                    <input type="text" class="form-control bg-border" maxlength="5" id="Weight" placeholder="kg" 
+                    id="weight" name="weight">
                 </div>
 
                 <!-- Height -->
 
                 <div class="form-group mt-4 w-50">
                     <label for="Height" class="form-label">Height</label>
-                    <input type="text" class="form-control bg-border" maxlength="5" only id="Height" placeholder="cm">
+                    <input type="text" class="form-control bg-border" maxlength="5" only id="Height" placeholder="cm"
+                     id="height" name="height">
                 </div>
 
                 <!-- Activity Level -->
 
                 <div class="form-group mt-4 ">
                     <label class="form-label">Activity Level</label>
-                    <select class="form-select bg-border" aria-label="Default select example">
+                    <select class="form-select bg-border" aria-label="Default select example" id="activity_level" name="activity_level">
                         <option disabled selected>Levels</option>
                         <option value="very low">Very Low</option>
                         <option value="low">Low</option>
@@ -235,8 +221,8 @@
                 <!-- Submit Button -->
 
                 <div class="col-auto m-4">
-                    <button class="btn submit me-4" id="" type="submit"><a class="nav-link"
-                            href="profile.html">Submit</a></button>
+                    <button class="btn submit me-4" id="" type="submit"><a class="nav-link">
+                        Submit</a></button>
                 </div>
 
             </form>

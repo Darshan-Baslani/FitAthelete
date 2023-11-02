@@ -5,8 +5,12 @@ from sqlalchemy.sql import func
 
 class Info(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    data = db.Column(db.String(10000)) # to be changed
-    date = db.Column(db.DateTime(timezone=True), default=func.now())
+    name = db.Column(db.String(100), nullable=False)
+    age = db.Column(db.Integer, nullable=False)
+    gender = db.Column(db.String(10), nullable=False)
+    weight = db.Column(db.Float, nullable=False)
+    height = db.Column(db.Float, nullable=False)
+    activity_level = db.Column(db.String(50), nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
 

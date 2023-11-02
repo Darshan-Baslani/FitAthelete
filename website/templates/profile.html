@@ -170,7 +170,7 @@
             <a class="nav-link ">Contact</a>
           </li>
         </ul>
-        <form class="d-flex">
+        <form class="d-flex" method="POST">
           {% if user.is_authenticated %}
 
           <!-- Logout Button -->
@@ -297,7 +297,7 @@
   <!-- data-bs-toggle="popover" data-bs-trigger="hover focus" data-bs-content="Disabled popover" -->
   <!-- Micro and Macro Nutrients Tracking Sectoion  -->
 
-  <div class="container-fluid mt-3">
+  <div class="container-fluid mt-3" method="POST">
     <div class="row">
       <div class="col-md-6 col-12 ">
         <div class="p-3 pt-0 border border-success" style="height: 76.7vh;">
@@ -307,7 +307,7 @@
 
           <!-- Energy Section -->
 
-          <div class="fw-bolder mt-2">Energy : <span>100</span> Kcal <img class="ms-2 mb-2 green-right-mark"
+          <div class="fw-bolder mt-2">Energy : <span id="Ne">100</span>/<span id="Te">100</span> Kcal <img class="ms-2 mb-2 green-right-mark"
               src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROaPq72gr8NJBSX3J2rhss-p6uN-VolRkKSJIqWmYPFg&s"
               alt="right-mark" style="height: 2.5vh;opacity: 100;"></div>
           <div class="progress  progressbar-outer" role="progressbar" aria-label="Animated striped example"
@@ -319,7 +319,7 @@
 
 
           <!-- Carbs Section  -->
-          <div class="fw-bolder mt-2">Carbs : <span>100</span> g <img class="ms-2 mb-2 green-right-mark"
+          <div class="fw-bolder mt-2">Carbs : <span id="Nc">100</span>/<span id="Tc">100</span> g <img class="ms-2 mb-2 green-right-mark"
               src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROaPq72gr8NJBSX3J2rhss-p6uN-VolRkKSJIqWmYPFg&s"
               alt="right-mark" style="height: 2.5vh;"></div>
           <div class="progress progressbar-outer" role="progressbar" aria-label="Animated striped example"
@@ -331,7 +331,7 @@
 
 
           <!-- Protein Section -->
-          <div class="fw-bolder mt-2">Protein :<span>100</span> g <img class="ms-2 mb-2 green-right-mark"
+          <div class="fw-bolder mt-2">Protein : <span id="Np">100</span>/<span id="Tp">100</span> g <img class="ms-2 mb-2 green-right-mark"
               src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROaPq72gr8NJBSX3J2rhss-p6uN-VolRkKSJIqWmYPFg&s"
               alt="right-mark" style="height: 2.5vh;"></div>
           <div class="progress progressbar-outer" role="progressbar" aria-label="Animated striped example"
@@ -342,7 +342,7 @@
 
 
           <!-- Fats Section -->
-          <div class="fw-bolder mt-2">Fats : <span>100</span> g <img class="ms-2 mb-2 green-right-mark"
+          <div class="fw-bolder mt-2">Fats : <span id="Nf">100</span>/<span id="Tf">100</span> g <img class="ms-2 mb-2 green-right-mark"
               src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROaPq72gr8NJBSX3J2rhss-p6uN-VolRkKSJIqWmYPFg&s"
               alt="right-mark" style="height: 2.5vh;"></div>
           <div class="progress progressbar-outer " role="progressbar" aria-label="Animated striped example"
@@ -396,7 +396,7 @@
 
       <!-- Meal Option Display Section  -->
 
-      <div class="col-md-6 col-12 mt-md-0 mt-5">
+      <div class="col-md-6 col-12 mt-md-0 mt-5" method="POST">
         <div class=" pb-5 border border-success" style="overflow-y: scroll;height: 76.7vh;">
 
           <div class="pt-3 pb-2 text-center sticky-top bg-white">
@@ -408,12 +408,13 @@
             <!-- Add That You Want To Eat  -->
             <div class="card mb-3 ms-md-1 ">
               <!-- Search Your Food -->
-              <form>
+              <form method="POST">
                 <div class="form-group mt-2 m-0 p">
                   <h3 class="text-center">Add Your Food That You Eat</h3>
 
                   <!--  GET FOOD NAME(value) FROM THIS SEARCH INPUT FOR API  -->
-                  <input type="search" class="text-center form-control bg-border" id="Athlete" placeholder="Food Name">
+                  <input type="search" class="text-center form-control bg-border" id="Athlete" placeholder="Food Name"
+                    name="food_name" method="POST">
 
                 </div>
                 <div class=" d-flex align-items-center justify-content-center ">
@@ -907,6 +908,8 @@
 
 
   <script>
+
+    // JavaScript For Event 
     let currentdate = new Date
     let d1 = currentdate.toDateString()
     let d = currentdate.getDate()
@@ -916,7 +919,6 @@
 
     let Today = `${d} ${month[m]},${y}`
     document.getElementById("Today").innerText = Today
-
 
     function addEvent() {
       document.getElementById("Event-name").innerText = document.getElementById("input-e-name").value
@@ -930,6 +932,44 @@
       let tdays = t >= 0 && t <= 9 ? `0${t}` : `${t}`
       document.getElementById("Tdays").innerText = tdays;
     }
+
+    // JavaScript For Carbs, fats , protien Calculation
+
+    let N_E = document.getElementById("Ne")
+    let R_E = document.getElementById("Te")
+    let N_C = document.getElementById("Nc")
+    let R_C = document.getElementById("Tc")
+    let N_P = document.getElementById("Np")
+    let R_P = document.getElementById("Tp")
+    let N_F = document.getElementById("Nf")
+    let R_F = document.getElementById("Tf")
+    let BMRMale = 88.362 + (13.397 * weight) + (4.799 * height) - (5.677 * age);
+    let BMRFemale = 447.593 + (9.247 * weight) + (3.098 * height) - (4.330 * age);
+
+    function TDEE(){
+      
+      if(l=="Sedentary"){             
+        return  BMR * 1.2;
+      }
+      if(l=="Very Low"){
+        return  BMR * 1.37;
+      }
+      if(l=="Low"){
+        return  BMR * 1.55;
+      }
+      if(l=="Moderate"){
+        return  BMR * 1.725;
+      }
+      if(l=="High"){
+        return  BMR * 1.9;
+      }
+
+    }
+
+  let carb = TDEE() * 0.17;
+  let protien = TDEE() * 0.12;
+  let fat = TDEE() * 0.05;
+
   </script>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
