@@ -170,7 +170,7 @@
             <a class="nav-link ">Contact</a>
           </li>
         </ul>
-        <form class="d-flex">
+        <form class="d-flex" method="POST">
           {% if user.is_authenticated %}
 
           <!-- Logout Button -->
@@ -297,7 +297,7 @@
   <!-- data-bs-toggle="popover" data-bs-trigger="hover focus" data-bs-content="Disabled popover" -->
   <!-- Micro and Macro Nutrients Tracking Sectoion  -->
 
-  <div class="container-fluid mt-3">
+  <div class="container-fluid mt-3" method="POST">
     <div class="row">
       <div class="col-md-6 col-12 ">
         <div class="p-3 pt-0 border border-success" style="height: 76.7vh;">
@@ -396,7 +396,7 @@
 
       <!-- Meal Option Display Section  -->
 
-      <div class="col-md-6 col-12 mt-md-0 mt-5">
+      <div class="col-md-6 col-12 mt-md-0 mt-5" method="POST">
         <div class=" pb-5 border border-success" style="overflow-y: scroll;height: 76.7vh;">
 
           <div class="pt-3 pb-2 text-center sticky-top bg-white">
@@ -408,12 +408,12 @@
             <!-- Add That You Want To Eat  -->
             <div class="card mb-3 ms-md-1 ">
               <!-- Search Your Food -->
-              <form>
+              <form method="POST">
                 <div class="form-group mt-2 m-0 p">
                   <h3 class="text-center">Add Your Food That You Eat</h3>
 
                   <!--  GET FOOD NAME(value) FROM THIS SEARCH INPUT FOR API  -->
-                  <input type="search" class="text-center form-control bg-border" id="Athlete" placeholder="Food Name">
+                  <input type="search" class="text-center form-control bg-border" id="Athlete" placeholder="Food Name" name="food_name">
 
                 </div>
                 <div class=" d-flex align-items-center justify-content-center ">
