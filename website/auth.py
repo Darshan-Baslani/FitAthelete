@@ -1,5 +1,6 @@
 from flask import Blueprint, render_template, request, flash, redirect, url_for, jsonify
 from .models import *
+from .query import *
 from werkzeug.security import check_password_hash, generate_password_hash
 from . import db
 from flask_login import login_user, login_required, logout_user, current_user
@@ -122,6 +123,28 @@ def info(user=None):
 @auth.route("/profile.html", methods=["GET", "POST"])
 @login_required
 def profile(user=None):
+    height = get_user_height(current_user)
+    weight = get_user_weight(current_user)
+    age = get_user_age(current_user)
+    gender = get_user_gender(current_user)
+    bmr = 0
+    tdee = 0
+    if gender == "MALE":
+        bmr = 88.362 + (13.397 * weight) + (4.799 * height) - (5.677 * age)
+    else:
+        bmr = 447.593 + (9.247 * weight) + (3.098 * height) - (4.330 & age)
+        
+    activity_level = get_user_activity_level(current_user)
+    
+    if activity_level == "very low":
+        tdee = bmr * 1.2
+    elif activity_level == "low":
+        tdee = bmr * 1.375
+    elif activity_level == "medium":
+        tdee = bmr * 1.55
+    else:
+        tdee = bmr * 1.725
+        
     if request.method == "POST":
         food_name = request.form.get("food_name")
         try:
@@ -142,8 +165,9 @@ def profile(user=None):
         }
         #return jsonify(data)
         #return redirect(url_for("auth.profile", data=data_final))
-        return render_template("profile.html", data=data_final, user=user)
-    return render_template("profile.html", user=user)
+        return render_template("profile.html", data=data_final, user=user, bmr=bmr, tdee=tdee)
+        
+    return render_template("profile.html", user=user, bmr=bmr, tdee=tdee)
 
 
 @auth.route("/logout")
