@@ -3,7 +3,7 @@ from .models import *
 from .query import *
 from werkzeug.security import check_password_hash, generate_password_hash
 from . import db
-from flask_login import login_user, login_required, logout_user, current_user
+from flask_login import login_user, login_required, logout_user, current_user, user_logged_out
 import requests
 import json
 from .nutritionX import find_nutrition
@@ -149,23 +149,29 @@ def profile(user=None):
         food_name = request.form.get("food_name")
         try:
             nutrition_info = find_nutrition(food_name)
+            if len(nutrition_info) == 2:
+                render_template("profile.html", user=user, bmr=bmr, tdee=tdee)
         except:
             render_template("profile.html", user=user)
-        try:
+            
+        if "foods" in nutrition_info and len(nutrition_info["foods"]) > 0:
             nutrition_info = nutrition_info["foods"][0]
-        except:
-            render_template("profile.html", user=user)
-        data_final = {
+            data_final = {
             "food_name": nutrition_info["food_name"],
             "nf_calories": nutrition_info["nf_calories"],
             "carbohydrate": nutrition_info["nf_total_carbohydrate"],
             "protein": nutrition_info["nf_protein"],
             "fat": nutrition_info["nf_total_fat"],
             "photo": nutrition_info["photo"]["thumb"],
-        }
+            }
+            return render_template("profile.html", data=data_final, user=user, bmr=bmr, tdee=tdee)
+        else:
+            render_template("profile.html", user=user, bmr=bmr, tdee=tdee)
+        
+        
         #return jsonify(data)
         #return redirect(url_for("auth.profile", data=data_final))
-        return render_template("profile.html", data=data_final, user=user, bmr=bmr, tdee=tdee)
+        
         
     return render_template("profile.html", user=user, bmr=bmr, tdee=tdee)
 

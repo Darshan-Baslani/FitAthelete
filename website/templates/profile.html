@@ -170,19 +170,12 @@
             <a class="nav-link ">Contact</a>
           </li>
         </ul>
-        <form class="d-flex" method="POST">
-          {% if user.is_authenticated %}
+        <form class="d-flex" role="search">
 
           <!-- Logout Button -->
-          <button class="btn  me-4 lsbtn" type="submit"><a class="nav-link" href="/logout">Logout</a></button>
+          <button class="btn  me-4" id="lsbtn" type="submit"><a class="nav-link"
+              href="/logout">Logout</a></button>
 
-          {% else %}
-
-          <!-- <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"> -->
-          <button class="btn btn me-2 lsbtn" type="submit"><a class="nav-link" href="login.html">LogIn</a></button>
-          <button class="btn  me-4 lsbtn" type="submit"><a class="nav-link" href="signup.html">SignUp</a></button>
-
-          {% endif %}
         </form>
 
         <div class="col-1">
@@ -197,7 +190,7 @@
   </nav>
 
   <!-- Flash Message (Python)-->
-  <!-- {% with messages = get_flashed_messages(with_categories=true) %} {% if
+  {% with messages = get_flashed_messages(with_categories=true) %} {% if
     messages %} {% for category, message in messages %} {% if category ==
     'error' %}
     <div class="alert alert-warning alert-dismissible fade show" role="alert">
@@ -209,7 +202,7 @@
         {{ message }}
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
-    {% endif %} {% endfor %} {% endif %} {% endwith %} -->
+    {% endif %} {% endfor %} {% endif %} {% endwith %} 
 
   <!-- Profile Header (Goal,UpComing Event) -->
 
