@@ -11,4 +11,4 @@ def home():
 
 @views.route('/index.html')
 def home2():
-    return render_template('index.html')
+    return render_template('index.html', user=current_user)

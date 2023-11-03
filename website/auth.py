@@ -83,12 +83,12 @@ def info(user=None):
         height = request.form.get("height")
         activity_level = request.form.get("activity_level")
 
-        print(name)
-        print(age)
-        print(gender)
-        print(weight)
-        print(height)
-        print(activity_level)
+        # print(name)
+        # print(age)
+        # print(gender)
+        # print(weight)
+        # print(height)
+        # print(activity_level)
 
         # Ensure "gender" is provided
         if gender is None:
@@ -124,8 +124,14 @@ def info(user=None):
 def profile(user=None):
     if request.method == "POST":
         food_name = request.form.get("food_name")
-        nutrition_info = find_nutrition(food_name)
-        nutrition_info = nutrition_info["foods"][0]
+        try:
+            nutrition_info = find_nutrition(food_name)
+        except:
+            render_template("profile.html", user=user)
+        try:
+            nutrition_info = nutrition_info["foods"][0]
+        except:
+            render_template("profile.html", user=user)
         data_final = {
             "food_name": nutrition_info["food_name"],
             "nf_calories": nutrition_info["nf_calories"],
