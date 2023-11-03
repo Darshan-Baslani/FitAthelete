@@ -11,10 +11,4 @@ def home():
 
 @views.route('/index.html')
 def home2():
-    return render_template('index.html')
-
-
-@views.route('/profile')
-@login_required
-def profile():
-    pass
+    return render_template('index.html', user=current_user)
