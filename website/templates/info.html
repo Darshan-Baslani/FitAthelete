@@ -132,7 +132,7 @@
     </nav>
 
     <!-- Flash Message (Python)-->
-    <!-- {% with messages = get_flashed_messages(with_categories=true) %} {% if
+    {% with messages = get_flashed_messages(with_categories=true) %} {% if
     messages %} {% for category, message in messages %} {% if category ==
     'error' %}
     <div class="alert alert-warning alert-dismissible fade show" role="alert">
@@ -144,7 +144,7 @@
         {{ message }}
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
-    {% endif %} {% endfor %} {% endif %} {% endwith %} -->
+    {% endif %} {% endfor %} {% endif %} {% endwith %}
 
     <div class="container d-flex align-items-center justify-content-center p-3 " style="background-color: white;">
         <div style="border: 5px solid #27ee59;padding: 5px;border-radius: 10px;">
