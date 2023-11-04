@@ -1,6 +1,7 @@
 import requests
 import json
-
+from flask import render_template
+from flask_login import current_user
 
 def find_nutrition(food_name):
     url = "https://trackapi.nutritionix.com/v2/natural/nutrients"
@@ -13,6 +14,8 @@ def find_nutrition(food_name):
     parameters = {
         'query' : food_name
     }
-    
-    response = requests.post(url, headers=headers, json=parameters)
+    try:
+        response = requests.post(url, headers=headers, json=parameters)
+    except:
+        return render_template("profile.html", user=current_user)
     return response.json()

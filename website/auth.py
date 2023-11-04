@@ -1,5 +1,6 @@
 from flask import Blueprint, render_template, request, flash, redirect, url_for, jsonify
 from .models import *
+from .query import *
 from werkzeug.security import check_password_hash, generate_password_hash
 from . import db
 from flask_login import login_user, login_required, logout_user, current_user
@@ -83,12 +84,12 @@ def info(user=None):
         height = request.form.get("height")
         activity_level = request.form.get("activity_level")
 
-        print(name)
-        print(age)
-        print(gender)
-        print(weight)
-        print(height)
-        print(activity_level)
+        # print(name)
+        # print(age)
+        # print(gender)
+        # print(weight)
+        # print(height)
+        # print(activity_level)
 
         # Ensure "gender" is provided
         if gender is None:
@@ -123,10 +124,38 @@ def info(user=None):
 @login_required
  
 def profile(user=None):
+    height = get_user_height(current_user)
+    weight = get_user_weight(current_user)
+    age = get_user_age(current_user)
+    gender = get_user_gender(current_user)
+    bmr = 0
+    tdee = 0
+    if gender == "MALE":
+        bmr = 88.362 + (13.397 * weight) + (4.799 * height) - (5.677 * age)
+    else:
+        bmr = 447.593 + (9.247 * weight) + (3.098 * height) - (4.330 & age)
+        
+    activity_level = get_user_activity_level(current_user)
+    
+    if activity_level == "very low":
+        tdee = bmr * 1.2
+    elif activity_level == "low":
+        tdee = bmr * 1.375
+    elif activity_level == "medium":
+        tdee = bmr * 1.55
+    else:
+        tdee = bmr * 1.725
+        
     if request.method == "POST":
         food_name = request.form.get("food_name")
-        nutrition_info = find_nutrition(food_name)
-        nutrition_info = nutrition_info["foods"][0]
+        try:
+            nutrition_info = find_nutrition(food_name)
+        except:
+            render_template("profile.html", user=user)
+        try:
+            nutrition_info = nutrition_info["foods"][0]
+        except:
+            render_template("profile.html", user=user)
         data_final = {
             "food_name": nutrition_info["food_name"],
             "nf_calories": nutrition_info["nf_calories"],
@@ -137,8 +166,9 @@ def profile(user=None):
         }
         #return jsonify(data)
         #return redirect(url_for("auth.profile", data=data_final))
-        return render_template("profile.html", data=data_final, user=user)
-    return render_template("profile.html", user=user)
+        return render_template("profile.html", data=data_final, user=user, bmr=bmr, tdee=tdee)
+        
+    return render_template("profile.html", user=user, bmr=bmr, tdee=tdee)
 
 
 @auth.route("/logout")
